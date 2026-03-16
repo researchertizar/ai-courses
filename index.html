@@ -579,20 +579,39 @@ window.addEventListener('DOMContentLoaded', async () => {
 ═══════════════════════════════════════════════════ */
 async function loadData() {
   try {
-    const res = await fetch(DATA_URL + '?t=' + Date.now());
-    DATA = await res.json();
+    const isJsonBin = DATA_URL.includes('jsonbin.io');
+    const headers = {};
+
+    if (isJsonBin) {
+      headers['X-Bin-Meta'] = 'false';        // skip metadata wrapper
+      // If your bin is private, also add:
+      // headers['X-Master-Key'] = '$2a$10$YOUR_KEY';
+    }
+
+    const res = await fetch(DATA_URL, { headers });
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const json = await res.json();
+    DATA = json.record || json;   // handle both wrapped + unwrapped responses
+
+    if (!DATA?.providers) throw new Error('providers field missing');
+
+    updateHeroStats();
+
   } catch (e) {
-    // try cache
+    console.error('loadData failed:', e);
+    // Try falling back to local courses.json
     try {
-      const res = await fetch(DATA_URL);
-      DATA = await res.json();
-      toast('Loaded from cache (offline)', 'def');
+      const fallback = await fetch('./courses.json');
+      DATA = await fallback.json();
+      updateHeroStats();
+      toast('Using local data (JSONBin unreachable)', 'def');
     } catch {
       DATA = { providers: [], meta: {} };
-      toast('Could not load data', 'err');
+      toast('Could not load course data', 'err');
     }
   }
-  updateHeroStats();
 }
 
 function updateHeroStats() {
