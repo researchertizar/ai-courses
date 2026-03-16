@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "version": "4.0",
+    "updated": "2026-03-16",
+    "total": 34,
+    "description": "Free AI courses for educators and students — verified and curated"
+  },
+  "providers": [
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "sub": "Claude Academy — anthropic.skilljar.com",
+      "color": "#E1F5EE",
+      "tc": "#0F6E56",
+      "courses": [
+        { "id": "a1", "name": "Claude 101", "desc": "Everyday AI tasks with Claude: core features, productivity, practical applications. No prior experience needed.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://anthropic.skilljar.com/claude-101" },
+        { "id": "a2", "name": "AI Fluency: Framework & Foundations", "desc": "Collaborate with AI effectively, ethically and safely. Ideal for any professional or educator.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://anthropic.skilljar.com/ai-fluency-framework-foundations" },
+        { "id": "a3", "name": "AI Fluency for Educators", "desc": "For faculty, instructional designers and educational leaders. Apply AI fluency in teaching practice and strategy.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator"], "link": "https://anthropic.skilljar.com/ai-fluency-for-educators" },
+        { "id": "a4", "name": "AI Fluency for Students", "desc": "Develop AI fluency to enhance learning, career planning and academic success through responsible AI.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["student"], "link": "https://anthropic.skilljar.com/ai-fluency-for-students" },
+        { "id": "a5", "name": "Teaching AI Fluency", "desc": "For faculty and instructional designers. How to teach and assess AI Fluency in instructor-led settings.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator"], "link": "https://anthropic.skilljar.com/teaching-ai-fluency" },
+        { "id": "a6", "name": "AI Fluency for Nonprofits", "desc": "Increase organisational impact and efficiency with AI while staying true to mission and values.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://anthropic.skilljar.com/ai-fluency-for-nonprofits" },
+        { "id": "a7", "name": "Building with the Claude API", "desc": "Full developer course on Anthropic models via the Claude API with hands-on coding exercises.", "tags": ["dev","intermediate"], "cert": "free", "cl": "Free Cert", "aud": ["student"], "link": "https://anthropic.skilljar.com/claude-with-the-anthropic-api" },
+        { "id": "a8", "name": "Introduction to Model Context Protocol (MCP)", "desc": "Build MCP servers and clients in Python. Tools, resources and prompts primitives explained.", "tags": ["dev","intermediate"], "cert": "free", "cl": "Free Cert", "aud": ["student"], "link": "https://anthropic.skilljar.com/introduction-to-model-context-protocol" },
+        { "id": "a9", "name": "Claude Code in Action", "desc": "Integrate Claude Code into development workflows. Agentic coding and real-world use cases.", "tags": ["dev","intermediate"], "cert": "free", "cl": "Free Cert", "aud": ["student"], "link": "https://anthropic.skilljar.com/claude-code-in-action" },
+        { "id": "a10", "name": "Claude with Amazon Bedrock", "desc": "First-of-its-kind training on using Claude via AWS infrastructure. Full course publicly available.", "tags": ["dev","intermediate"], "cert": "free", "cl": "Free Cert", "aud": ["student"], "link": "https://anthropic.skilljar.com/claude-in-amazon-bedrock" }
+      ]
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "sub": "Grow with Google & Google Cloud",
+      "color": "#E6F1FB",
+      "tc": "#0C447C",
+      "courses": [
+        { "id": "g1", "name": "Generative AI for Educators with Gemini", "desc": "2-hour self-paced. Use Gemini & NotebookLM to save time, personalise instruction and enhance lessons.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator"], "link": "https://grow.google/ai-for-educators/" },
+        { "id": "g2", "name": "Google AI Essentials", "desc": "Under 15 hours. Generative AI tools, prompt engineering and AI responsibility. Employer-recognised certificate.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://grow.google/certificates/ai-essentials/" },
+        { "id": "g3", "name": "Google Prompting Essentials", "desc": "Write effective AI prompts using a 5-step framework. Standalone certificate from Google.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://grow.google/certificates/prompting-essentials/" },
+        { "id": "g4", "name": "Generative AI Learning Path (Google Cloud)", "desc": "10 short courses on GenAI concepts, LLMs and responsible AI. Google Cloud skill badges awarded.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["student"], "link": "https://cloud.google.com/training/machinelearning-ai" },
+        { "id": "g5", "name": "AI for Students (Grow with Google)", "desc": "Free workshop on using AI as a study tool, for career planning and productivity.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["student"], "link": "https://grow.google/ai/" }
+      ]
+    },
+    {
+      "id": "ibm",
+      "name": "IBM",
+      "sub": "IBM SkillsBuild — skillsbuild.org",
+      "color": "#EEEDFE",
+      "tc": "#3C3489",
+      "courses": [
+        { "id": "i1", "name": "Artificial Intelligence Fundamentals", "desc": "NLP, computer vision, ML, deep learning, AI ethics. Earn verified IBM Digital Badge via Credly.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://skillsbuild.org/adult-learners/explore-learning/artificial-intelligence" },
+        { "id": "i2", "name": "AI Foundations (ISTE + IBM)", "desc": "Comprehensive AI intro for students and classrooms. IBM Digital Badge. Educator facilitator guide included.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://skillsbuild.org/students/course-catalog/artificial-intelligence/ai-foundations-powered-by-iste-and-ibm" },
+        { "id": "i3", "name": "IBM AI Foundations for Educators", "desc": "9 free on-demand webinars covering ML, NLP, ethics and robotics. IBM Digital Badge for Educators.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator"], "link": "https://skillsbuild.org/students/course-catalog/artificial-intelligence/ibm-ai-education-powered-by-mindspark-learning" },
+        { "id": "i4", "name": "Generative AI Fundamentals (IBM SkillsBuild)", "desc": "Practical GenAI skills: what it is, how it works, responsible use. Free IBM digital credential.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://skillsbuild.org/adult-learners/explore-learning/artificial-intelligence" }
+      ]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "sub": "Microsoft Learn — learn.microsoft.com",
+      "color": "#FAECE7",
+      "tc": "#993C1D",
+      "courses": [
+        { "id": "m1", "name": "AI Skills Navigator + Free Educator Courses", "desc": "Free self-paced courses, live sessions and AI simulations in 13+ languages. Microsoft Elevate for Educators Credential.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator"], "link": "https://learn.microsoft.com/en-us/training/" },
+        { "id": "m2", "name": "Embark on Your AI Journey with Microsoft AI Tools", "desc": "3-hour intro for educators covering Copilot, Teams AI tools and lesson planning with AI.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator"], "link": "https://learn.microsoft.com/en-us/training/" },
+        { "id": "m3", "name": "AI for Beginners (Microsoft GitHub Curriculum)", "desc": "26-lesson open-source curriculum covering AI, ML, neural networks, NLP and computer vision.", "tags": ["beginner"], "cert": "free", "cl": "Free Cert", "aud": ["student","educator"], "link": "https://microsoft.github.io/AI-For-Beginners/" },
+        { "id": "m4", "name": "Applied Skills: Streamline Workflows with AI Chat", "desc": "Scenario-based credential. Proves ability to use AI chat in real work tasks. Free lab-based assessment.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://learn.microsoft.com/en-us/credentials/applied/streamline-business-workflows-ai-chat/" },
+        { "id": "m5", "name": "Intro to Generative AI (Azure AI Fundamentals Path)", "desc": "Free learning module on AI concepts, ML and responsible AI. Prepares for AI-900 (exam fee applies).", "tags": ["nocode","beginner"], "cert": "partial", "cl": "Free Learning", "aud": ["student"], "link": "https://learn.microsoft.com/en-us/training/paths/get-started-with-artificial-intelligence-on-azure/" }
+      ]
+    },
+    {
+      "id": "aws",
+      "name": "AWS (Amazon)",
+      "sub": "AWS Educate & AWS Skill Builder",
+      "color": "#FAEEDA",
+      "tc": "#633806",
+      "courses": [
+        { "id": "w1", "name": "Introduction to Generative AI (AWS Educate)", "desc": "Foundational GenAI covering LLMs, foundation models, responsible AI and prompt engineering. Free badge, no account needed.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["student","educator"], "link": "https://aws.amazon.com/education/awseducate/" },
+        { "id": "w2", "name": "Generative AI for Decision Makers", "desc": "3-course series on AI possibilities, project planning and building a GenAI-ready organisation. 90 minutes total.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator"], "link": "https://explore.skillbuilder.aws/learn/catalog?ct=stc&searchText=generative+ai+decision" },
+        { "id": "w3", "name": "Foundations of Prompt Engineering", "desc": "Covers prompt basics to advanced techniques. No coding needed. Free via AWS Skill Builder.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://explore.skillbuilder.aws/learn/course/external/view/elearning/17763/foundations-of-prompt-engineering" },
+        { "id": "w4", "name": "Introduction to Responsible AI", "desc": "Free short course on AI fairness, privacy, transparency and governance. Relevant for educators.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://explore.skillbuilder.aws/learn/course/external/view/elearning/18318/introduction-to-responsible-ai" }
+      ]
+    },
+    {
+      "id": "univ-helsinki",
+      "name": "University of Helsinki",
+      "sub": "Elements of AI — elementsofai.com",
+      "color": "#EAF3DE",
+      "tc": "#3B6D11",
+      "courses": [
+        { "id": "h1", "name": "Introduction to AI (Elements of AI)", "desc": "2M+ students in 170+ countries. No math or coding required. 25 hours self-paced. University of Helsinki certificate.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://www.elementsofai.com/" },
+        { "id": "h2", "name": "Building AI (Elements of AI)", "desc": "Sequel to Intro to AI. Covers actual AI algorithms. Basic Python helpful. University of Helsinki certificate.", "tags": ["beginner"], "cert": "free", "cl": "Free Cert", "aud": ["student"], "link": "https://buildingai.elementsofai.com/" },
+        { "id": "h3", "name": "Ethics of AI (Elements of AI)", "desc": "AI ethics, fairness, bias and societal impact. Ideal for educators and students. Helsinki certificate.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://ethics-of-ai.mooc.fi/" }
+      ]
+    },
+    {
+      "id": "deeplearning",
+      "name": "DeepLearning.AI",
+      "sub": "Coursera — deeplearning.ai (Andrew Ng)",
+      "color": "#FCEBEB",
+      "tc": "#A32D2D",
+      "courses": [
+        { "id": "d1", "name": "AI for Everyone", "desc": "Non-technical. 700k+ learners. AI terminology, business strategy and ethics by Andrew Ng. ~5 hours.", "tags": ["nocode","beginner"], "cert": "partial", "cl": "Aid/Free", "aud": ["educator","student"], "link": "https://www.coursera.org/learn/ai-for-everyone" },
+        { "id": "d2", "name": "Generative AI for Everyone", "desc": "Non-technical. GenAI limitations, real-world use cases and business impacts. Certificate via financial aid.", "tags": ["nocode","beginner"], "cert": "partial", "cl": "Aid/Free", "aud": ["educator","student"], "link": "https://www.coursera.org/learn/generative-ai-for-everyone" },
+        { "id": "d3", "name": "AI for Good Specialization", "desc": "3-course series using AI to address global challenges. No coding needed. Certificate via financial aid.", "tags": ["nocode","beginner"], "cert": "partial", "cl": "Aid/Free", "aud": ["educator","student"], "link": "https://www.coursera.org/specializations/ai-for-good" }
+      ]
+    },
+    {
+      "id": "umd",
+      "name": "Univ. of Maryland",
+      "sub": "Robert H. Smith School of Business",
+      "color": "#F1EFE8",
+      "tc": "#444441",
+      "courses": [
+        { "id": "u1", "name": "AI & Career Empowerment Certificate", "desc": "100% free certificate from a top US business school. For professionals and educators pivoting to AI-enabled roles.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://www.rhsmith.umd.edu/programs/executive-education/learning-opportunities-individuals/free-online-certificate-artificial-intelligence-and-career-empowerment" }
+      ]
+    },
+    {
+      "id": "misc",
+      "name": "Other Verified Sources",
+      "sub": "Alison · MIT OCW · Harvard/edX",
+      "color": "#E6F1FB",
+      "tc": "#185FA5",
+      "courses": [
+        { "id": "x1", "name": "Introduction to AI (Alison)", "desc": "Free, globally recognised. AI basics, ML and neural networks. Free digital certificate on completion.", "tags": ["nocode","beginner"], "cert": "free", "cl": "Free Cert", "aud": ["educator","student"], "link": "https://alison.com/courses/introduction-to-artificial-intelligence-revised" },
+        { "id": "x2", "name": "Artificial Intelligence (MIT OpenCourseWare)", "desc": "Free MIT lectures, readings and assignments. No certificate but MIT-quality content. Completely free.", "tags": ["beginner"], "cert": "partial", "cl": "No Cert (Free)", "aud": ["student","educator"], "link": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/" },
+        { "id": "x3", "name": "CS50's Introduction to AI with Python (Harvard)", "desc": "Harvard's CS50 AI course: search, ML and neural networks with Python. Free audit; paid cert available.", "tags": ["beginner"], "cert": "partial", "cl": "Audit/Paid", "aud": ["student"], "link": "https://cs50.harvard.edu/ai/" }
+      ]
+    }
+  ]
+}

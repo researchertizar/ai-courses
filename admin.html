@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin — AI Courses Dataset</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+<style>
+/* ═══ TOKENS (shared with viewer) ════════════════ */
+:root{
+  --font:'Plus Jakarta Sans',system-ui,sans-serif;
+  --bg:#F4F2EE;--surface:#FFFFFF;--surface2:#F9F8F6;--surface3:#EEECEA;
+  --line:#E4E1DB;--line2:#D0CCC4;
+  --ink:#18170F;--ink2:#5A5850;--ink3:#9A978F;--inv:#FFFFFF;
+  --brand:#1A1916;--brand-h:#3D3B35;
+  --green:#166534;--green-s:#DCFCE7;--green-b:#BBF7D0;
+  --blue:#1D4ED8;--blue-s:#DBEAFE;--blue-b:#BFDBFE;
+  --amber:#92400E;--amber-s:#FEF3C7;--amber-b:#FDE68A;
+  --rose:#9F1239;--rose-s:#FFE4E6;--rose-b:#FECDD3;
+  --purple:#5B21B6;--purple-s:#EDE9FE;--purple-b:#DDD6FE;
+  --teal:#134E4A;--teal-s:#CCFBF1;--teal-b:#99F6E4;
+  --slate:#334155;--slate-s:#F1F5F9;--slate-b:#E2E8F0;
+  --s1:0 1px 2px rgba(0,0,0,.05);--s2:0 4px 12px rgba(0,0,0,.06);--s3:0 8px 24px rgba(0,0,0,.08);--s4:0 20px 60px rgba(0,0,0,.12);
+  --r1:6px;--r2:10px;--r3:14px;--r4:20px;--r5:28px;
+  --t:.15s ease;--tS:.25s cubic-bezier(.4,0,.2,1);
+}
+[data-theme="dark"]{
+  --bg:#0F0E0A;--surface:#1A1915;--surface2:#222118;--surface3:#2C2B22;
+  --line:#2E2D24;--line2:#3E3D33;
+  --ink:#F2EFE6;--ink2:#A8A49A;--ink3:#68665E;--inv:#0F0E0A;
+  --brand:#F2EFE6;--brand-h:#D8D5CC;
+  --green:#86EFAC;--green-s:#052E16;--green-b:#14532D;
+  --blue:#93C5FD;--blue-s:#0C1A3E;--blue-b:#1E3A6E;
+  --amber:#FCD34D;--amber-s:#2D1B00;--amber-b:#5C3500;
+  --rose:#FDA4AF;--rose-s:#2D0A0F;--rose-b:#5C1520;
+  --purple:#C4B5FD;--purple-s:#1E0A40;--purple-b:#3B1A7A;
+  --teal:#5EEAD4;--teal-s:#042F2E;--teal-b:#0D5E5A;
+  --slate:#CBD5E1;--slate-s:#0F172A;--slate-b:#1E293B;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6;min-height:100dvh;-webkit-font-smoothing:antialiased;transition:background var(--tS),color var(--tS)}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+button{cursor:pointer;font-family:var(--font);border:none;background:none;color:inherit}
+input,select,textarea{font-family:var(--font)}
+.hidden{display:none!important}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:3px}
+/* ═══ LOGIN SCREEN ═══════════════════════════════ */
+.login-wrap{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px}
+.login-card{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r4);padding:36px;box-shadow:var(--s4)}
+.login-logo{width:52px;height:52px;border-radius:var(--r3);background:var(--brand);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.login-logo svg{width:28px;height:28px;stroke:var(--inv);fill:none;stroke-width:2;stroke-linecap:round}
+.login-title{font-size:22px;font-weight:800;text-align:center;color:var(--ink);letter-spacing:-.02em;margin-bottom:6px}
+.login-sub{font-size:13px;color:var(--ink3);text-align:center;margin-bottom:24px}
+.login-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.login-label{font-size:12px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.07em}
+.login-input{padding:10px 13px;border:1.5px solid var(--line);border-radius:var(--r2);background:var(--surface2);color:var(--ink);font-size:14px;transition:all var(--t)}
+.login-input:focus{outline:none;border-color:var(--blue);background:var(--surface);box-shadow:0 0 0 3px var(--blue-s)}
+.login-btn{width:100%;padding:11px;border-radius:var(--r2);background:var(--brand);color:var(--inv);font-size:14px;font-weight:700;transition:all var(--t);margin-top:4px}
+.login-btn:hover{background:var(--brand-h);transform:translateY(-1px)}
+.login-err{font-size:13px;color:var(--rose);background:var(--rose-s);border:1px solid var(--rose-b);border-radius:var(--r2);padding:9px 12px;text-align:center;margin-top:10px;display:none}
+.login-err.show{display:block}
+.login-hint{font-size:12px;color:var(--ink3);text-align:center;margin-top:16px}
+/* ═══ ADMIN LAYOUT ═══════════════════════════════ */
+.admin-wrap{display:grid;grid-template-columns:260px 1fr;min-height:100dvh}
+/* Sidebar */
+.sidebar{background:var(--surface);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100dvh;overflow-y:auto}
+.sidebar-brand{display:flex;align-items:center;gap:10px;padding:20px 18px;border-bottom:1px solid var(--line)}
+.sb-logo{width:36px;height:36px;border-radius:var(--r2);background:var(--brand);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sb-logo svg{width:20px;height:20px;stroke:var(--inv);fill:none;stroke-width:2;stroke-linecap:round}
+.sb-title{font-size:14px;font-weight:700;color:var(--ink)}
+.sb-sub{font-size:11px;color:var(--ink3)}
+.sidebar-nav{padding:12px 10px;flex:1}
+.nav-group{margin-bottom:20px}
+.nav-group-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink3);padding:0 8px;margin-bottom:6px}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--r2);font-size:13px;font-weight:500;color:var(--ink2);transition:all var(--t);cursor:pointer;border:none;background:none;width:100%;text-align:left}
+.nav-item:hover{background:var(--surface3);color:var(--ink)}
+.nav-item.active{background:var(--blue-s);color:var(--blue);font-weight:600}
+.nav-item svg{width:16px;height:16px;flex-shrink:0;pointer-events:none}
+.nav-item .badge{margin-left:auto;font-size:10px;font-weight:700;padding:1px 6px;border-radius:20px;background:var(--green-s);color:var(--green)}
+.sidebar-foot{padding:14px 18px;border-top:1px solid var(--line)}
+.sf-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sf-user{font-size:12px;font-weight:600;color:var(--ink2)}
+.sf-btns{display:flex;gap:6px}
+.sf-btn{width:28px;height:28px;border-radius:var(--r1);border:1px solid var(--line);background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--ink2);transition:all var(--t)}
+.sf-btn:hover{background:var(--surface3);color:var(--ink)}
+.sf-btn svg{width:13px;height:13px;pointer-events:none}
+/* ═══ MAIN PANEL ═════════════════════════════════ */
+.admin-main{display:flex;flex-direction:column;overflow:hidden}
+.admin-topbar{padding:16px 28px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--surface);position:sticky;top:0;z-index:50}
+.admin-page-title{font-size:18px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.topbar-actions{display:flex;align-items:center;gap:8px}
+.tbtn{display:flex;align-items:center;gap:5px;padding:7px 14px;border-radius:var(--r2);font-size:13px;font-weight:600;transition:all var(--t)}
+.tbtn-primary{background:var(--brand);color:var(--inv)}
+.tbtn-primary:hover{background:var(--brand-h)}
+.tbtn-sec{border:1px solid var(--line);background:var(--surface2);color:var(--ink2)}
+.tbtn-sec:hover{background:var(--surface3);color:var(--ink)}
+.tbtn-danger{border:1px solid var(--rose-b);background:var(--rose-s);color:var(--rose)}
+.tbtn-danger:hover{background:var(--rose);color:white}
+.tbtn svg{width:13px;height:13px;pointer-events:none}
+.admin-content{padding:24px 28px;flex:1;overflow-y:auto}
+/* ═══ DASHBOARD ══════════════════════════════════ */
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+.dash-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:18px;display:flex;flex-direction:column;gap:4px}
+.dash-num{font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.dash-lbl{font-size:12px;color:var(--ink3)}
+.dash-card.g .dash-num{color:var(--green)}
+.dash-card.b .dash-num{color:var(--blue)}
+.dash-card.p .dash-num{color:var(--purple)}
+.dash-card.a .dash-num{color:var(--amber)}
+/* ═══ DATA SOURCE PANEL ══════════════════════════ */
+.ds-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:20px;margin-bottom:20px}
+.ds-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:12px}
+.ds-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.ds-input{flex:1;min-width:200px;padding:9px 12px;border:1.5px solid var(--line);border-radius:var(--r2);background:var(--surface2);color:var(--ink);font-size:13px;transition:all var(--t)}
+.ds-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-s)}
+.ds-badge{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;padding:4px 10px;border-radius:20px}
+.ds-local{background:var(--slate-s);color:var(--slate)}
+.ds-remote{background:var(--green-s);color:var(--green)}
+.ds-desc{font-size:12px;color:var(--ink3);line-height:1.55}
+/* ═══ SECTION / TABLE ════════════════════════════ */
+.section-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:8px;flex-wrap:wrap}
+.section-title{font-size:15px;font-weight:700;color:var(--ink)}
+.admin-table-wrap{background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);overflow:hidden;margin-bottom:20px}
+.admin-table{width:100%;border-collapse:collapse}
+.admin-table thead th{padding:10px 14px;background:var(--surface2);border-bottom:1px solid var(--line);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);text-align:left;white-space:nowrap}
+.admin-table thead th:first-child{padding-left:18px}
+.admin-table tbody tr{transition:background var(--t)}
+.admin-table tbody tr:hover td{background:var(--surface2)}
+.admin-table tbody td{padding:11px 14px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:middle}
+.admin-table tbody td:first-child{padding-left:18px}
+.admin-table tbody tr:last-child td{border-bottom:none}
+.act-btn{width:26px;height:26px;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;color:var(--ink3);transition:all var(--t);border:1px solid transparent;flex-shrink:0}
+.act-btn:hover.edit{color:var(--blue);border-color:var(--blue-b);background:var(--blue-s)}
+.act-btn:hover.del{color:var(--rose);border-color:var(--rose-b);background:var(--rose-s)}
+.act-btn svg{width:12px;height:12px;pointer-events:none}
+/* ═══ TAGS ════════════════════════════════════════ */
+.tag{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:500;padding:2px 7px;border-radius:20px;white-space:nowrap}
+.t-nocode{background:var(--slate-s);color:var(--slate)}
+.t-beginner{background:var(--blue-s);color:var(--blue)}
+.t-int{background:var(--amber-s);color:var(--amber)}
+.t-dev{background:var(--rose-s);color:var(--rose)}
+.t-educator{background:var(--purple-s);color:var(--purple)}
+.t-student{background:var(--teal-s);color:var(--teal)}
+.cert-free{background:var(--green-s);color:var(--green);border:1px solid var(--green-b)}
+.cert-partial{background:var(--amber-s);color:var(--amber);border:1px solid var(--amber-b)}
+.cert-badge{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;padding:3px 8px;border-radius:20px;white-space:nowrap}
+/* ═══ PROVIDERS GRID ══════════════════════════════ */
+.prov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:20px}
+.prov-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:16px;transition:all var(--tS)}
+.prov-card:hover{border-color:var(--line2);box-shadow:var(--s2)}
+.pc-badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;text-transform:uppercase;margin-bottom:10px;display:inline-block}
+.pc-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.pc-sub{font-size:11px;color:var(--ink3);margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-num{font-size:22px;font-weight:800;color:var(--ink)}
+.pc-lbl{font-size:11px;color:var(--ink3)}
+.pc-actions{display:flex;gap:6px;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+.pc-btn{flex:1;font-size:12px;font-weight:600;padding:5px;border-radius:var(--r1);border:1px solid var(--line);background:var(--surface2);color:var(--ink2);text-align:center;transition:all var(--t)}
+.pc-btn:hover{background:var(--surface3);color:var(--ink)}
+/* ═══ MODAL ═══════════════════════════════════════ */
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.52);backdrop-filter:blur(4px);z-index:300;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity var(--tS)}
+.mo.open{opacity:1;pointer-events:all}
+.modal{background:var(--surface);border:1px solid var(--line);border-radius:var(--r4);width:100%;max-width:560px;max-height:92vh;overflow-y:auto;box-shadow:var(--s4);transform:scale(.96) translateY(10px);transition:transform .22s cubic-bezier(.34,1.56,.64,1)}
+.mo.open .modal{transform:scale(1) translateY(0)}
+.modal-hdr{display:flex;align-items:center;justify-content:space-between;padding:20px 22px 0;border-bottom:1px solid var(--line);padding-bottom:14px;position:sticky;top:0;background:var(--surface);z-index:1}
+.modal-title{font-size:17px;font-weight:800;color:var(--ink)}
+.modal-x{width:30px;height:30px;border-radius:var(--r1);border:1px solid var(--line);background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--ink2);transition:all var(--t)}
+.modal-x:hover{background:var(--surface3);color:var(--ink)}
+.modal-x svg{width:13px;height:13px;pointer-events:none}
+.modal-body{padding:18px 22px 22px;display:flex;flex-direction:column;gap:14px}
+.f-group{display:flex;flex-direction:column;gap:5px}
+.f-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--ink2)}
+.f-label .req{color:var(--rose);margin-left:2px}
+.f-input,.f-textarea,.f-select{padding:9px 12px;border:1.5px solid var(--line);border-radius:var(--r2);background:var(--surface2);color:var(--ink);font-size:13px;width:100%;transition:all var(--t)}
+.f-input:focus,.f-textarea:focus,.f-select:focus{outline:none;border-color:var(--blue);background:var(--surface);box-shadow:0 0 0 3px var(--blue-s)}
+.f-textarea{min-height:80px;resize:vertical;line-height:1.55}
+.f-hint{font-size:11px;color:var(--ink3)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.url-row{display:flex;gap:8px}
+.url-row .f-input{flex:1}
+.ai-btn{display:flex;align-items:center;gap:5px;padding:9px 13px;border-radius:var(--r2);background:var(--brand);color:var(--inv);font-size:12px;font-weight:600;white-space:nowrap;transition:all var(--t);flex-shrink:0}
+.ai-btn:hover{background:var(--brand-h)}
+.ai-btn:disabled{opacity:.5;cursor:not-allowed}
+.ai-btn svg{width:13px;height:13px;pointer-events:none}
+.spin{animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.detect-msg{padding:9px 12px;border-radius:var(--r2);font-size:12px;display:none;line-height:1.55}
+.detect-msg.ok{display:block;background:var(--green-s);color:var(--green);border:1px solid var(--green-b)}
+.detect-msg.err{display:block;background:var(--rose-s);color:var(--rose);border:1px solid var(--rose-b)}
+.tag-picker{display:flex;flex-wrap:wrap;gap:5px}
+.tp-btn{font-size:12px;font-weight:500;padding:4px 11px;border-radius:20px;border:1.5px solid var(--line);color:var(--ink2);background:var(--bg);transition:all var(--t);cursor:pointer}
+.tp-btn.on{background:var(--brand);color:var(--inv);border-color:var(--brand)}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;padding-top:2px}
+.m-btn-sec{padding:8px 16px;border-radius:var(--r2);font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--surface2);color:var(--ink2);transition:all var(--t)}
+.m-btn-sec:hover{background:var(--surface3);color:var(--ink)}
+.m-btn-pri{padding:8px 16px;border-radius:var(--r2);font-size:13px;font-weight:600;background:var(--green);color:white;transition:all var(--t)}
+.m-btn-pri:hover{opacity:.88;transform:translateY(-1px)}
+/* ═══ BULK IMPORT ═════════════════════════════════ */
+.bulk-input{min-height:130px;font-size:12px;font-family:monospace;line-height:1.6}
+.bulk-log{background:var(--surface2);border-radius:var(--r2);padding:12px;font-size:12px;color:var(--ink2);max-height:180px;overflow-y:auto;line-height:1.8;display:none;font-family:monospace}
+.bulk-log.show{display:block}
+.log-ok{color:var(--green)}.log-dup{color:var(--amber)}.log-err{color:var(--rose)}
+/* ═══ SCRAPE PANEL ════════════════════════════════ */
+.scrape-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:20px;margin-bottom:20px}
+.sp-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.sp-sub{font-size:13px;color:var(--ink2);margin-bottom:16px;line-height:1.55}
+.sp-targets{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:16px}
+.sp-target{display:flex;align-items:center;gap:7px;padding:8px 12px;border:1.5px solid var(--line);border-radius:var(--r2);font-size:12px;font-weight:500;color:var(--ink2);cursor:pointer;transition:all var(--t);background:var(--surface2)}
+.sp-target input{accent-color:var(--green);cursor:pointer}
+.sp-target.sel{border-color:var(--green-b);background:var(--green-s);color:var(--green)}
+.progress-bar{height:6px;background:var(--surface3);border-radius:10px;overflow:hidden;margin:10px 0;display:none}
+.progress-bar.show{display:block}
+.progress-fill{height:100%;background:var(--blue);border-radius:10px;transition:width .4s ease;width:0}
+.scrape-log{background:var(--surface2);border-radius:var(--r2);padding:12px;font-size:12px;color:var(--ink2);max-height:160px;overflow-y:auto;line-height:1.8;display:none;font-family:monospace;margin-top:10px}
+.scrape-log.show{display:block}
+/* scrape preview list */
+.sp-list{display:flex;flex-direction:column;gap:8px;max-height:300px;overflow-y:auto}
+.sp-item{display:flex;gap:10px;padding:10px 12px;border:1.5px solid var(--line);border-radius:var(--r2);background:var(--surface2);transition:border-color var(--t)}
+.sp-item:hover{border-color:var(--line2)}
+.sp-item input[type=checkbox]{accent-color:var(--green);width:16px;height:16px;flex-shrink:0;margin-top:2px;cursor:pointer}
+.sp-iname{font-size:13px;font-weight:600;color:var(--ink)}
+.sp-imeta{font-size:11px;color:var(--ink3);margin-top:2px}
+.sp-itags{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+/* ═══ EXPORT/IMPORT ═══════════════════════════════ */
+.exp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:20px}
+.exp-btn{display:flex;flex-direction:column;gap:6px;padding:16px;border:1.5px solid var(--line);border-radius:var(--r3);background:var(--surface);font-size:13px;font-weight:600;color:var(--ink2);transition:all var(--tS);text-align:left}
+.exp-btn:hover{border-color:var(--blue-b);background:var(--blue-s);color:var(--blue)}
+.exp-btn svg{width:20px;height:20px;pointer-events:none}
+.exp-btn span{font-size:11px;color:var(--ink3);font-weight:400}
+/* ═══ TOAST ═══════════════════════════════════════ */
+.toast-stack{position:fixed;bottom:22px;right:22px;z-index:600;display:flex;flex-direction:column;gap:7px;pointer-events:none}
+.toast{display:flex;align-items:center;gap:7px;padding:10px 16px;border-radius:var(--r3);font-size:13px;font-weight:500;box-shadow:var(--s4);transform:translateX(120%);opacity:0;transition:all .3s ease;max-width:300px}
+.toast.show{transform:translateX(0);opacity:1}
+.t-ok{background:var(--green);color:white}
+.t-err{background:var(--rose);color:white}
+.t-def{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.t-info{background:var(--blue);color:white}
+.toast svg{width:13px;height:13px;flex-shrink:0;pointer-events:none}
+/* ═══ RESPONSIVE ══════════════════════════════════ */
+@media(max-width:900px){
+  .admin-wrap{grid-template-columns:1fr}
+  .sidebar{position:fixed;left:-260px;z-index:100;transition:left var(--tS);height:100%;top:0}
+  .sidebar.open{left:0;box-shadow:var(--s4)}
+  .mob-menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99;display:none}
+  .mob-menu-overlay.show{display:block}
+  .admin-topbar{padding:12px 16px}
+  .admin-content{padding:16px}
+  .dash-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:500px){
+  .dash-grid{grid-template-columns:1fr 1fr}
+  .f-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="loginScreen" class="login-wrap">
+  <div class="login-card">
+    <div class="login-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="login-title">Admin Panel</div>
+    <div class="login-sub">AI Courses Dataset Management</div>
+    <div class="login-field">
+      <label class="login-label" for="loginUser">Username</label>
+      <input class="login-input" id="loginUser" type="text" placeholder="admin" autocomplete="username">
+    </div>
+    <div class="login-field">
+      <label class="login-label" for="loginPass">Password</label>
+      <input class="login-input" id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <button class="login-btn" onclick="doLogin()">Sign In</button>
+    <div class="login-err" id="loginErr">Incorrect username or password</div>
+    <div class="login-hint">Default: admin / admin123 — change in config</div>
+  </div>
+</div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-menu-overlay" id="mobOverlay" onclick="closeSidebar()"></div>
+
+<!-- ADMIN APP (hidden until logged in) -->
+<div class="admin-wrap hidden" id="adminApp">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sb-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <div><div class="sb-title">AI Courses</div><div class="sb-sub">Admin Dashboard</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-group">
+        <div class="nav-group-label">Overview</div>
+        <button class="nav-item active" onclick="showPage('dashboard',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </button>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">Content</div>
+        <button class="nav-item" onclick="showPage('courses',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          All Courses
+        </button>
+        <button class="nav-item" onclick="showPage('providers',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          Providers
+        </button>
+        <button class="nav-item" onclick="showPage('add',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Add Course
+        </button>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">Tools</div>
+        <button class="nav-item" onclick="showPage('autodiscover',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Auto-Discover
+        </button>
+        <button class="nav-item" onclick="showPage('bulk',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Bulk Import
+        </button>
+        <button class="nav-item" onclick="showPage('export',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export / Import
+        </button>
+        <button class="nav-item" onclick="showPage('settings',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          Settings
+        </button>
+      </div>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="sf-row">
+        <span class="sf-user" id="sfUser">Admin</span>
+        <div class="sf-btns">
+          <button class="sf-btn" onclick="toggleTheme()" title="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+          <a class="sf-btn" href="index.html" title="View public site" target="_blank" style="display:flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <button class="sf-btn" onclick="doLogout()" title="Logout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="tbtn tbtn-sec" id="mobMenuBtn" onclick="openSidebar()" style="display:none;padding:7px 10px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="admin-page-title" id="pageTitle">Dashboard</div>
+      </div>
+      <div class="topbar-actions" id="topbarActions"></div>
+    </div>
+    <div class="admin-content" id="adminContent"></div>
+  </div>
+</div>
+
+<!-- ADD/EDIT COURSE MODAL -->
+<div class="mo" id="addModal">
+  <div class="modal">
+    <div class="modal-hdr">
+      <div class="modal-title" id="addModalTitle">Add New Course</div>
+      <button class="modal-x" onclick="closeModal('addModal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="f-group">
+        <label class="f-label" for="mUrl">Course URL <span class="req">*</span></label>
+        <div class="url-row">
+          <input class="f-input" id="mUrl" type="url" placeholder="https://example.com/course">
+          <button class="ai-btn" id="aiBtnEl" onclick="aiDetect()">
+            <svg id="aiIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            <span id="aiTxt">AI Fill</span>
+          </button>
+        </div>
+        <div class="f-hint">Paste URL and click AI Fill to auto-detect course details using Claude AI</div>
+        <div class="detect-msg" id="aiMsg"></div>
+      </div>
+      <div class="f-group"><label class="f-label" for="mName">Course Name <span class="req">*</span></label><input class="f-input" id="mName" type="text" placeholder="e.g. Introduction to Machine Learning"></div>
+      <div class="f-group"><label class="f-label" for="mDesc">Description</label><textarea class="f-textarea" id="mDesc" placeholder="Brief description of what students will learn…"></textarea></div>
+      <div class="f-row">
+        <div class="f-group">
+          <label class="f-label" for="mProv">Provider <span class="req">*</span></label>
+          <select class="f-select" id="mProv"></select>
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="mCert">Certificate Type</label>
+          <select class="f-select" id="mCert">
+            <option value="free">✓ Free Certificate</option>
+            <option value="partial">Audit / Financial Aid</option>
+            <option value="none">No Certificate</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-group hidden" id="newProvWrap"><label class="f-label" for="mNewProv">New Provider Name</label><input class="f-input" id="mNewProv" type="text" placeholder="e.g. Stanford Online"></div>
+      <div class="f-group"><label class="f-label">Tags</label><div class="tag-picker" id="tagPicker"><button class="tp-btn on" data-tag="beginner">Beginner</button><button class="tp-btn" data-tag="intermediate">Intermediate</button><button class="tp-btn on" data-tag="nocode">No-Code</button><button class="tp-btn" data-tag="dev">Developer</button></div></div>
+      <div class="f-group"><label class="f-label">Audience</label><div class="tag-picker" id="audPicker"><button class="tp-btn on" data-aud="educator">Educator</button><button class="tp-btn on" data-aud="student">Student</button></div></div>
+      <div class="modal-actions"><button class="m-btn-sec" onclick="closeModal('addModal')">Cancel</button><button class="m-btn-pri" id="saveCourseBtn" onclick="saveCourse()">Add Course</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRAPE PREVIEW MODAL -->
+<div class="mo" id="scrapeModal">
+  <div class="modal" style="max-width:620px">
+    <div class="modal-hdr"><div class="modal-title" id="spModalTitle">Review Discovered Courses</div><button class="modal-x" onclick="closeModal('scrapeModal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="modal-body">
+      <p style="font-size:13px;color:var(--ink2);margin-top:-6px">Tick the courses you want to add. Duplicates have been filtered out.</p>
+      <div class="sp-list" id="spList"></div>
+      <div class="modal-actions"><button class="m-btn-sec" onclick="closeModal('scrapeModal')">Cancel</button><button class="m-btn-pri" onclick="addScraped()">Add Selected</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD PROVIDER MODAL -->
+<div class="mo" id="addProvModal">
+  <div class="modal" style="max-width:440px">
+    <div class="modal-hdr"><div class="modal-title">Add Provider</div><button class="modal-x" onclick="closeModal('addProvModal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="modal-body">
+      <div class="f-group"><label class="f-label" for="pName">Provider Name <span class="req">*</span></label><input class="f-input" id="pName" type="text" placeholder="e.g. Stanford Online"></div>
+      <div class="f-group"><label class="f-label" for="pSub">Subtitle / URL</label><input class="f-input" id="pSub" type="text" placeholder="e.g. online.stanford.edu"></div>
+      <div class="f-row">
+        <div class="f-group"><label class="f-label" for="pColor">Badge Background</label><input class="f-input" id="pColor" type="color" value="#E5EFFA" style="height:42px;padding:4px"></div>
+        <div class="f-group"><label class="f-label" for="pTextColor">Badge Text</label><input class="f-input" id="pTextColor" type="color" value="#0A3D7A" style="height:42px;padding:4px"></div>
+      </div>
+      <div class="modal-actions"><button class="m-btn-sec" onclick="closeModal('addProvModal')">Cancel</button><button class="m-btn-pri" onclick="saveProvider()">Add Provider</button></div>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="jsonFile" accept=".json" style="display:none" onchange="importJSON(event)">
+<div class="toast-stack" id="toastStack"></div>
+
+<script>
+'use strict';
+/* ═══════════════════════════════════════════════════
+   CONFIG
+═══════════════════════════════════════════════════ */
+const CFG = {
+  ADMIN_USER: 'admin',
+  ADMIN_PASS: 'admin123',          // CHANGE THIS before deploying!
+  DATA_URL:   './courses.json',    // relative path or absolute URL
+  JSONBIN_KEY: '',                 // optional: JSONBin.io API key for cloud sync
+  JSONBIN_ID:  '',                 // optional: JSONBin.io bin ID
+  CORS_PROXY:  'https://api.allorigins.win/raw?url=',
+};
+
+/* ═══════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════ */
+let DATA = null, editCid = null, scraped = [];
+
+const load = (k, fb) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : fb; } catch { return fb; } };
+const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+const saveData = () => save('ai_admin_data', DATA);
+
+/* ═══════════════════════════════════════════════════
+   LOGIN
+═══════════════════════════════════════════════════ */
+function doLogin() {
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  if (u === CFG.ADMIN_USER && p === CFG.ADMIN_PASS) {
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('adminApp').classList.remove('hidden');
+    document.getElementById('sfUser').textContent = u;
+    save('admin_auth', btoa(u + ':' + p));
+    initAdmin();
+  } else {
+    document.getElementById('loginErr').classList.add('show');
+    document.getElementById('loginPass').value = '';
+  }
+}
+function doLogout() { localStorage.removeItem('admin_auth'); location.reload(); }
+function checkAuth() {
+  const auth = load('admin_auth', null);
+  if (auth) {
+    try {
+      const [u, p] = atob(auth).split(':');
+      if (u === CFG.ADMIN_USER && p === CFG.ADMIN_PASS) {
+        document.getElementById('loginScreen').classList.add('hidden');
+        document.getElementById('adminApp').classList.remove('hidden');
+        document.getElementById('sfUser').textContent = u;
+        return true;
+      }
+    } catch {}
+  }
+  return false;
+}
+
+/* ═══════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', async () => {
+  // Mobile menu button
+  if (window.innerWidth <= 900) document.getElementById('mobMenuBtn').style.display = 'flex';
+  window.addEventListener('resize', () => {
+    document.getElementById('mobMenuBtn').style.display = window.innerWidth <= 900 ? 'flex' : 'none';
+  });
+  document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+  if (checkAuth()) initAdmin();
+});
+
+async function initAdmin() {
+  DATA = load('ai_admin_data', null);
+  if (!DATA) await fetchData();
+  showPage('dashboard', document.querySelector('.nav-item'));
+  populateProviderSelect();
+  document.querySelectorAll('.tp-btn').forEach(b => b.addEventListener('click', () => b.classList.toggle('on')));
+  document.getElementById('mProv').addEventListener('change', function () {
+    document.getElementById('newProvWrap').classList.toggle('hidden', this.value !== '_new');
+  });
+}
+
+async function fetchData() {
+  try {
+    const r = await fetch(CFG.DATA_URL + '?t=' + Date.now());
+    DATA = await r.json();
+    saveData();
+    toast('Dataset loaded from file', 'ok');
+  } catch {
+    DATA = { meta: {}, providers: [] };
+    toast('Could not load courses.json — starting empty', 'err');
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════════ */
+function openSidebar()  { document.getElementById('sidebar').classList.add('open');   document.getElementById('mobOverlay').classList.add('show'); }
+function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('mobOverlay').classList.remove('show'); }
+
+/* ═══════════════════════════════════════════════════
+   PAGE ROUTER
+═══════════════════════════════════════════════════ */
+function showPage(page, btn) {
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  closeSidebar();
+  const pages = { dashboard, courses, providers, add, autodiscover, bulk, export: exportPage, settings };
+  const fn = pages[page];
+  if (fn) fn();
+}
+
+/* ═══════════════════════════════════════════════════
+   HELPER — stats
+═══════════════════════════════════════════════════ */
+function getStats() {
+  if (!DATA?.providers) return { total: 0, free: 0, provs: 0 };
+  let total = 0, free = 0;
+  DATA.providers.forEach(p => { total += p.courses.length; free += p.courses.filter(c => c.cert === 'free').length; });
+  return { total, free, provs: DATA.providers.length };
+}
+
+/* ═══════════════════════════════════════════════════
+   PAGES
+═══════════════════════════════════════════════════ */
+function dashboard() {
+  document.getElementById('pageTitle').textContent = 'Dashboard';
+  const s = getStats();
+  const dataMode = CFG.JSONBIN_KEY ? '☁️ Cloud (JSONBin)' : '📁 Local File';
+  document.getElementById('topbarActions').innerHTML = `
+    <button class="tbtn tbtn-sec" onclick="fetchData().then(()=>{toast('Refreshed','ok');dashboard()})">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 100-.49"/></svg>
+      Refresh
+    </button>
+    <button class="tbtn tbtn-primary" onclick="showPage('add',document.querySelector('[onclick*=add]'))">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add Course
+    </button>`;
+  document.getElementById('adminContent').innerHTML = `
+    <div class="dash-grid">
+      <div class="dash-card g"><div class="dash-num">${s.total}</div><div class="dash-lbl">Total Courses</div></div>
+      <div class="dash-card b"><div class="dash-num">${s.free}</div><div class="dash-lbl">Free Certificates</div></div>
+      <div class="dash-card p"><div class="dash-num">${s.provs}</div><div class="dash-lbl">Providers</div></div>
+      <div class="dash-card a"><div class="dash-num">${s.total - s.free}</div><div class="dash-lbl">Audit / Aid</div></div>
+    </div>
+    <div class="ds-panel">
+      <div class="ds-title">📡 Data Source</div>
+      <div class="ds-row">
+        <input class="ds-input" id="dataUrlInput" type="text" value="${CFG.DATA_URL}" placeholder="./courses.json or https://...">
+        <button class="tbtn tbtn-sec" onclick="CFG.DATA_URL=document.getElementById('dataUrlInput').value;fetchData().then(()=>{toast('Data URL updated','ok');dashboard()})">Connect</button>
+        <span class="ds-badge ds-local">${dataMode}</span>
+      </div>
+      <div class="ds-desc">Point DATA_URL to any publicly accessible JSON file — GitHub raw URL, JSONBin, Netlify blob, etc. The viewer page uses the same path. For JSONBin cloud sync, add your API key and bin ID in the CFG object at the bottom of admin.html.</div>
+    </div>
+    <div class="section-hdr"><div class="section-title">Recent Additions</div></div>
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead><tr><th style="width:44%">Course</th><th style="width:13%">Cert</th><th style="width:14%">For</th><th style="width:11%">Provider</th><th style="width:8%">Actions</th></tr></thead>
+        <tbody>${recentCourseRows()}</tbody>
+      </table>
+    </div>`;
+}
+
+function recentCourseRows() {
+  const all = [];
+  (DATA?.providers || []).forEach(p => p.courses.forEach(c => all.push({ ...c, _pname: p.name, _pid: p.id })));
+  return all.slice(-8).reverse().map(c => courseTableRow(c, c._pname, c._pid)).join('');
+}
+
+function courses() {
+  document.getElementById('pageTitle').textContent = 'All Courses';
+  document.getElementById('topbarActions').innerHTML = `
+    <input type="text" id="tableSearch" placeholder="Search…" style="padding:7px 12px;border:1px solid var(--line);border-radius:var(--r2);background:var(--surface2);color:var(--ink);font-size:13px;width:180px" oninput="filterTable()">
+    <button class="tbtn tbtn-primary" onclick="openAddModal()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add Course
+    </button>`;
+  const rows = [];
+  (DATA?.providers || []).forEach(p => p.courses.forEach(c => rows.push(courseTableRow(c, p.name, p.id))));
+  document.getElementById('adminContent').innerHTML = `
+    <div class="admin-table-wrap">
+      <table class="admin-table" id="coursesTable">
+        <thead><tr><th style="width:40%">Course</th><th style="width:13%">Cert</th><th style="width:13%">For</th><th style="width:13%">Provider</th><th style="width:11%">Actions</th></tr></thead>
+        <tbody>${rows.join('')}</tbody>
+      </table>
+    </div>`;
+}
+
+function courseTableRow(c, pname, pid) {
+  const certCls = c.cert === 'free' ? 'cert-free' : 'cert-partial';
+  const audHtml = (c.aud||[]).map(a => a==='educator'?'<span class="tag t-educator">Edu</span>':'<span class="tag t-student">Stu</span>').join('');
+  return `<tr data-search="${(c.name+' '+(c.desc||'')+' '+pname).toLowerCase()}">
+    <td><div style="font-weight:600;color:var(--ink)">${c.name}</div><div style="font-size:12px;color:var(--ink3);margin-top:2px">${(c.desc||'').slice(0,80)}…</div></td>
+    <td><span class="tag cert-badge ${certCls}">${c.cert==='free'?'✓ ':''}${c.cl}</span></td>
+    <td>${audHtml}</td>
+    <td style="font-size:12px;color:var(--ink2)">${pname}</td>
+    <td>
+      <div style="display:flex;gap:4px">
+        <button class="act-btn edit" onclick="openEditModal('${c.id}')" title="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+        <button class="act-btn del" onclick="deleteCourse('${c.id}','${pid}')" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg></button>
+      </div>
+    </td>
+  </tr>`;
+}
+
+function filterTable() {
+  const q = document.getElementById('tableSearch')?.value.trim().toLowerCase() || '';
+  document.querySelectorAll('#coursesTable tbody tr').forEach(tr => {
+    tr.style.display = !q || tr.dataset.search?.includes(q) ? '' : 'none';
+  });
+}
+
+function providers() {
+  document.getElementById('pageTitle').textContent = 'Providers';
+  document.getElementById('topbarActions').innerHTML = `
+    <button class="tbtn tbtn-primary" onclick="openModal('addProvModal')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add Provider
+    </button>`;
+  const cards = (DATA?.providers || []).map(p => `
+    <div class="prov-card">
+      <span class="pc-badge" style="background:${p.color};color:${p.tc}">${p.name}</span>
+      <div class="pc-name">${p.name}</div>
+      <div class="pc-sub">${p.sub}</div>
+      <div><span class="pc-num">${p.courses.length}</span></div>
+      <div class="pc-lbl">courses</div>
+      <div class="pc-actions">
+        <button class="pc-btn" onclick="filterToProvider('${p.id}')">View courses</button>
+        <button class="pc-btn" style="color:var(--rose)" onclick="deleteProvider('${p.id}')">Delete</button>
+      </div>
+    </div>`).join('');
+  document.getElementById('adminContent').innerHTML = `<div class="prov-grid">${cards}</div>`;
+}
+
+function filterToProvider(pid) {
+  showPage('courses', null);
+  setTimeout(() => {
+    document.querySelectorAll('#coursesTable tbody tr').forEach(tr => {
+      const p = (DATA?.providers || []).find(x => x.id === pid);
+      tr.style.display = p && p.courses.find(c => tr.innerHTML.includes(c.id)) ? '' : 'none';
+    });
+  }, 50);
+}
+
+function add() {
+  document.getElementById('pageTitle').textContent = 'Add Course';
+  document.getElementById('topbarActions').innerHTML = '';
+  document.getElementById('adminContent').innerHTML = `
+    <div style="max-width:600px">
+      <p style="font-size:14px;color:var(--ink2);margin-bottom:20px">Paste a URL and use AI Auto-Fill, or fill in the form manually. The course will be added to the selected provider's list.</p>
+      <button class="tbtn tbtn-primary" style="font-size:14px;padding:11px 22px" onclick="openAddModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:15px;height:15px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Open Add Course Form
+      </button>
+    </div>`;
+  openAddModal();
+}
+
+function autodiscover() {
+  document.getElementById('pageTitle').textContent = 'Auto-Discover';
+  document.getElementById('topbarActions').innerHTML = '';
+  const TARGETS = [
+    { id: 'anthropic', label: 'Anthropic', url: 'https://anthropic.skilljar.com/' },
+    { id: 'google',    label: 'Google',    url: 'https://grow.google/ai-for-educators/' },
+    { id: 'ibm',       label: 'IBM',       url: 'https://skillsbuild.org/adult-learners/explore-learning/artificial-intelligence' },
+    { id: 'microsoft', label: 'Microsoft', url: 'https://learn.microsoft.com/en-us/training/' },
+    { id: 'aws',       label: 'AWS',       url: 'https://aws.amazon.com/education/awseducate/' },
+    { id: 'univ-helsinki', label: 'Helsinki', url: 'https://www.elementsofai.com/' },
+    { id: 'deeplearning',  label: 'DeepLearning.AI', url: 'https://www.coursera.org/search?query=ai+for+everyone' },
+    { id: 'misc',      label: 'Alison',    url: 'https://alison.com/tag/artificial-intelligence' },
+  ];
+  document.getElementById('adminContent').innerHTML = `
+    <div class="scrape-panel">
+      <div class="sp-title">🔍 Auto-Discover New Courses</div>
+      <div class="sp-sub">Select providers to scan. The scanner fetches each page via a free CORS proxy, then uses Claude AI to extract course listings. Only courses not already in your dataset will be shown.</div>
+      <div class="sp-targets">${TARGETS.map(t => `
+        <label class="sp-target sel" id="st-${t.id}">
+          <input type="checkbox" checked value="${t.id}" data-url="${t.url}" data-label="${t.label}">
+          ${t.label}
+        </label>`).join('')}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="tbtn tbtn-primary" id="scanBtn" onclick="runScan()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Start Scan
+        </button>
+        <button class="tbtn tbtn-sec" onclick="document.querySelectorAll('.sp-target input').forEach(c=>c.checked=true);document.querySelectorAll('.sp-target').forEach(t=>t.classList.add('sel'))">Select All</button>
+        <button class="tbtn tbtn-sec" onclick="document.querySelectorAll('.sp-target input').forEach(c=>c.checked=false);document.querySelectorAll('.sp-target').forEach(t=>t.classList.remove('sel'))">Clear</button>
+      </div>
+      <div class="progress-bar" id="scanProg"><div class="progress-fill" id="scanFill"></div></div>
+      <div class="scrape-log" id="scanLog"></div>
+    </div>`;
+  document.querySelectorAll('.sp-target input').forEach(cb => {
+    cb.addEventListener('change', () => cb.closest('.sp-target').classList.toggle('sel', cb.checked));
+  });
+}
+
+async function runScan() {
+  const selected = [...document.querySelectorAll('.sp-target input:checked')];
+  if (!selected.length) { toast('Select at least one provider', 'err'); return; }
+  const btn = document.getElementById('scanBtn');
+  const log  = document.getElementById('scanLog');
+  const prog = document.getElementById('scanProg');
+  const fill = document.getElementById('scanFill');
+  btn.disabled = true; btn.textContent = 'Scanning…';
+  log.innerHTML = ''; log.classList.add('show');
+  prog.classList.add('show'); fill.style.width = '0%';
+
+  const existing = new Set((DATA?.providers || []).flatMap(p => p.courses.map(c => c.link.toLowerCase().replace(/\/$/,''))));
+  scraped = [];
+
+  for (let i = 0; i < selected.length; i++) {
+    const { value: pid, dataset: { url, label } } = selected[i];
+    fill.style.width = Math.round((i / selected.length) * 100) + '%';
+    log.innerHTML += `<span style="color:var(--blue)">→ Scanning ${label}…</span>\n`;
+    log.scrollTop = log.scrollHeight;
+    try {
+      const html = await fetch(CFG.CORS_PROXY + encodeURIComponent(url), { signal: AbortSignal.timeout(12000) }).then(r => r.text());
+      const doc  = new DOMParser().parseFromString(html, 'text/html');
+      ['script','style','nav','footer','header'].forEach(t => doc.querySelectorAll(t).forEach(e => e.remove()));
+      const text = (doc.body?.textContent || '').replace(/\s+/g,' ').slice(0, 5000);
+
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1200, messages: [{ role: 'user', content: `Extract all AI/ML courses from this ${label} page. Return ONLY a JSON array, no markdown:\n[{"name":"","desc":"1-2 sentences","cert":"free or partial","tags":["beginner"],"aud":["educator","student"],"link":"https://..."}]\nIf none found, return [].\ntags: beginner,intermediate,nocode,dev  aud: educator,student\nPage text:\n${text}` }] })
+      });
+      const data = await res.json();
+      const raw  = (data?.content?.[0]?.text || '').replace(/```(?:json)?|```/g, '').trim();
+      const list = JSON.parse(raw);
+      let newCount = 0;
+      (list || []).forEach(c => {
+        if (!c.name || !c.link) return;
+        const norm = c.link.toLowerCase().replace(/\/$/,'');
+        if (existing.has(norm) || existing.has(norm + '/')) return;
+        scraped.push({ ...c, _pid: pid, _pname: label, id: 'sc_' + Date.now() + '_' + Math.random().toString(36).slice(2), cl: c.cert==='free'?'Free Cert':'Aid/Free' });
+        existing.add(norm); newCount++;
+      });
+      log.innerHTML += `  <span style="color:var(--green)">✓ ${label}: ${newCount} new found</span>\n`;
+    } catch (e) {
+      log.innerHTML += `  <span style="color:var(--rose)">✗ ${label}: ${e.message}</span>\n`;
+    }
+    log.scrollTop = log.scrollHeight;
+    await new Promise(r => setTimeout(r, 700));
+  }
+
+  fill.style.width = '100%';
+  btn.disabled = false; btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Start Scan`;
+  log.innerHTML += `\n<b style="color:var(--ink)">Scan complete — ${scraped.length} new course${scraped.length!==1?'s':''} found.</b>`;
+
+  if (!scraped.length) { toast('No new courses found — dataset is up to date ✓', 'ok'); return; }
+
+  document.getElementById('spModalTitle').textContent = `${scraped.length} New Course${scraped.length!==1?'s':''} Found`;
+  document.getElementById('spList').innerHTML = scraped.map((c, i) => `
+    <div class="sp-item">
+      <input type="checkbox" checked id="sc${i}">
+      <div style="flex:1;min-width:0">
+        <div class="sp-iname">${c.name}</div>
+        <div class="sp-imeta">${c._pname} · <a href="${c.link}" target="_blank" style="color:var(--blue)">${c.link.slice(0,55)}…</a></div>
+        <div class="sp-itags">${(c.tags||[]).map(t=>mkTag(t)).join('')}${(c.aud||[]).map(a=>mkAud(a)).join('')}</div>
+      </div>
+    </div>`).join('');
+  openModal('scrapeModal');
+}
+
+function addScraped() {
+  const items = document.querySelectorAll('#spList .sp-item');
+  let added = 0;
+  items.forEach((item, i) => {
+    if (!item.querySelector('input')?.checked) return;
+    const c = scraped[i];
+    const prov = (DATA?.providers || []).find(p => p.id === c._pid) || DATA.providers.find(p => p.id === 'misc');
+    if (!prov) return;
+    if (prov.courses.find(x => x.link.toLowerCase() === c.link.toLowerCase())) return;
+    prov.courses.push({ id: c.id, name: c.name, desc: c.desc || '', tags: c.tags||['beginner'], cert: c.cert||'partial', cl: c.cl, aud: c.aud||['student'], link: c.link });
+    added++;
+  });
+  saveData(); closeModal('scrapeModal');
+  if (CFG.JSONBIN_KEY) syncToCloud();
+  toast(`Added ${added} course${added!==1?'s':''}!`, 'ok');
+  dashboard();
+}
+
+function bulk() {
+  document.getElementById('pageTitle').textContent = 'Bulk URL Import';
+  document.getElementById('topbarActions').innerHTML = '';
+  document.getElementById('adminContent').innerHTML = `
+    <div style="max-width:600px">
+      <p style="font-size:14px;color:var(--ink2);margin-bottom:16px">Paste one course URL per line. Claude AI will auto-detect details for each URL and add them to the selected provider.</p>
+      <div class="f-group" style="margin-bottom:12px">
+        <label class="f-label">Course URLs (one per line)</label>
+        <textarea class="f-textarea bulk-input" id="bulkUrls" placeholder="https://grow.google/certificates/ai-essentials/\nhttps://skillsbuild.org/adult-learners/..."></textarea>
+      </div>
+      <div class="f-row" style="margin-bottom:16px">
+        <div class="f-group">
+          <label class="f-label">Add to Provider</label>
+          <select class="f-select" id="bulkProv">
+            <option value="misc">Auto-detect</option>
+            ${(DATA?.providers||[]).map(p=>`<option value="${p.id}">${p.name}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+      <button class="tbtn tbtn-primary" id="bulkRunBtn" onclick="runBulk()">Process with AI</button>
+      <div class="progress-bar" id="bulkProg" style="margin-top:12px"><div class="progress-fill" id="bulkFill"></div></div>
+      <div class="bulk-log" id="bulkLog"></div>
+    </div>`;
+}
+
+async function runBulk() {
+  const raw = document.getElementById('bulkUrls').value.trim();
+  const urls = raw.split('\n').map(u => u.trim()).filter(u => /^https?:\/\//i.test(u));
+  if (!urls.length) { toast('No valid URLs found', 'err'); return; }
+  const btn  = document.getElementById('bulkRunBtn');
+  const log  = document.getElementById('bulkLog');
+  const prog = document.getElementById('bulkProg');
+  const fill = document.getElementById('bulkFill');
+  const provId = document.getElementById('bulkProv').value;
+  btn.disabled = true; btn.textContent = 'Processing…';
+  log.innerHTML = ''; log.classList.add('show');
+  prog.classList.add('show');
+  const existing = new Set((DATA?.providers||[]).flatMap(p=>p.courses.map(c=>c.link.toLowerCase().replace(/\/$/,''))));
+  let added = 0, dupes = 0, errors = 0;
+
+  for (let i = 0; i < urls.length; i++) {
+    fill.style.width = Math.round(((i+1)/urls.length)*100) + '%';
+    const url = urls[i]; const norm = url.toLowerCase().replace(/\/$/,'');
+    if (existing.has(norm) || existing.has(norm+'/')) {
+      log.innerHTML += `<span class="log-dup">⚠ Duplicate: ${url}</span>\n`; dupes++; continue;
+    }
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:500, messages:[{role:'user',content:`Extract course metadata from URL. Return ONLY JSON no markdown:\n{"name":"","desc":"","cert":"free or partial","tags":["beginner"],"aud":["educator","student"]}\ntags:beginner,intermediate,nocode,dev aud:educator,student\nURL:${url}`}] }) });
+      const d = await res.json();
+      const obj = JSON.parse((d?.content?.[0]?.text||'').replace(/```(?:json)?|```/g,'').trim());
+      if (!obj?.name) throw new Error('No name extracted');
+      const prov = (DATA?.providers||[]).find(p=>p.id===provId) || (DATA?.providers||[]).find(p=>p.id==='misc') || DATA.providers[0];
+      prov.courses.push({ id:'b_'+Date.now()+'_'+Math.random().toString(36).slice(2), name:obj.name, desc:obj.desc||'', tags:obj.tags||['beginner'], cert:obj.cert||'partial', cl:obj.cert==='free'?'Free Cert':'Aid/Free', aud:obj.aud||['student'], link:url });
+      existing.add(norm);
+      log.innerHTML += `<span class="log-ok">✓ ${obj.name}</span>\n`;
+      added++;
+    } catch (e) {
+      log.innerHTML += `<span class="log-err">✗ ${url} — ${e.message}</span>\n`; errors++;
+    }
+    log.scrollTop = log.scrollHeight;
+    await new Promise(r => setTimeout(r, 600));
+  }
+  log.innerHTML += `\n<b>Done — ${added} added, ${dupes} duplicates, ${errors} errors</b>`;
+  saveData();
+  if (CFG.JSONBIN_KEY) syncToCloud();
+  btn.disabled = false; btn.textContent = 'Process with AI';
+  if (added) toast(`Bulk import: ${added} course${added!==1?'s':''} added`, 'ok');
+}
+
+function exportPage() {
+  document.getElementById('pageTitle').textContent = 'Export / Import';
+  document.getElementById('topbarActions').innerHTML = '';
+  document.getElementById('adminContent').innerHTML = `
+    <div class="section-hdr"><div class="section-title">Export Dataset</div></div>
+    <div class="exp-grid">
+      <button class="exp-btn" onclick="doExport('json')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>JSON<span>Full dataset with metadata</span></button>
+      <button class="exp-btn" onclick="doExport('csv')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>CSV<span>Spreadsheet-compatible</span></button>
+      <button class="exp-btn" onclick="doExport('md')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Markdown<span>Documentation-ready</span></button>
+      <button class="exp-btn" onclick="window.print()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print<span>Print-optimised view</span></button>
+    </div>
+    <div class="section-hdr" style="margin-top:8px"><div class="section-title">Import</div></div>
+    <div class="exp-grid">
+      <button class="exp-btn" onclick="document.getElementById('jsonFile').click()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Import JSON<span>Merge from file</span></button>
+      <button class="exp-btn" style="color:var(--rose);border-color:var(--rose-b)" onclick="resetData()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 100-.49"/></svg>Reset<span>Restore seed data</span></button>
+    </div>
+    <div class="section-hdr" style="margin-top:8px"><div class="section-title">☁️ Cloud Sync (JSONBin.io)</div></div>
+    <div class="ds-panel" style="margin-bottom:0">
+      <div class="f-row">
+        <div class="f-group"><label class="f-label">JSONBin API Key</label><input class="f-input" id="jbKey" type="password" value="${CFG.JSONBIN_KEY}" placeholder="$2a$10$..."></div>
+        <div class="f-group"><label class="f-label">Bin ID</label><input class="f-input" id="jbId" type="text" value="${CFG.JSONBIN_ID}" placeholder="6507..."></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button class="tbtn tbtn-sec" onclick="CFG.JSONBIN_KEY=document.getElementById('jbKey').value;CFG.JSONBIN_ID=document.getElementById('jbId').value;syncToCloud()">Push to Cloud</button>
+        <button class="tbtn tbtn-sec" onclick="CFG.JSONBIN_KEY=document.getElementById('jbKey').value;CFG.JSONBIN_ID=document.getElementById('jbId').value;pullFromCloud()">Pull from Cloud</button>
+        <button class="tbtn tbtn-sec" onclick="createNewBin()">Create New Bin</button>
+      </div>
+      <div class="f-hint" style="margin-top:8px">Sign up free at <a href="https://jsonbin.io" target="_blank">jsonbin.io</a>. Create a bin with your courses.json content, copy the bin ID and your Master API key here. The viewer page's DATA_URL should point to: <code style="background:var(--surface3);padding:2px 5px;border-radius:4px;font-size:11px">https://api.jsonbin.io/v3/b/YOUR_BIN_ID/latest</code></div>
+    </div>`;
+}
+
+async function syncToCloud() {
+  if (!CFG.JSONBIN_KEY || !CFG.JSONBIN_ID) { toast('Set JSONBin key and bin ID first', 'err'); return; }
+  try {
+    const r = await fetch(`https://api.jsonbin.io/v3/b/${CFG.JSONBIN_ID}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'X-Master-Key': CFG.JSONBIN_KEY }, body: JSON.stringify(DATA) });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    toast('Synced to cloud ✓', 'ok');
+  } catch (e) { toast('Cloud sync failed: ' + e.message, 'err'); }
+}
+async function pullFromCloud() {
+  if (!CFG.JSONBIN_KEY || !CFG.JSONBIN_ID) { toast('Set JSONBin key and bin ID first', 'err'); return; }
+  try {
+    const r = await fetch(`https://api.jsonbin.io/v3/b/${CFG.JSONBIN_ID}/latest`, { headers: { 'X-Master-Key': CFG.JSONBIN_KEY } });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json(); DATA = d.record || d; saveData(); dashboard();
+    toast('Pulled from cloud ✓', 'ok');
+  } catch (e) { toast('Pull failed: ' + e.message, 'err'); }
+}
+async function createNewBin() {
+  if (!CFG.JSONBIN_KEY) { toast('Set JSONBin API key first', 'err'); return; }
+  try {
+    const r = await fetch('https://api.jsonbin.io/v3/b', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Master-Key': CFG.JSONBIN_KEY, 'X-Bin-Name': 'ai-courses' }, body: JSON.stringify(DATA) });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json(); CFG.JSONBIN_ID = d.metadata.id;
+    document.getElementById('jbId').value = CFG.JSONBIN_ID;
+    toast('New bin created: ' + CFG.JSONBIN_ID, 'ok');
+  } catch (e) { toast('Create bin failed: ' + e.message, 'err'); }
+}
+
+function settings() {
+  document.getElementById('pageTitle').textContent = 'Settings';
+  document.getElementById('topbarActions').innerHTML = '';
+  document.getElementById('adminContent').innerHTML = `
+    <div style="max-width:500px;display:flex;flex-direction:column;gap:16px">
+      <div class="ds-panel">
+        <div class="ds-title">🔐 Change Admin Password</div>
+        <div class="f-group"><label class="f-label" for="newPass">New Password</label><input class="f-input" id="newPass" type="password" placeholder="Enter new password"></div>
+        <div class="f-group" style="margin-top:10px"><label class="f-label" for="confPass">Confirm Password</label><input class="f-input" id="confPass" type="password" placeholder="Confirm new password"></div>
+        <button class="tbtn tbtn-primary" style="margin-top:12px" onclick="changePassword()">Update Password</button>
+        <div class="f-hint" style="margin-top:8px">For production, change the default password in the CFG object at the top of admin.html.</div>
+      </div>
+      <div class="ds-panel">
+        <div class="ds-title">🎨 Appearance</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0">
+          <span style="font-size:13px;color:var(--ink2)">Dark Mode</span>
+          <button class="tbtn tbtn-sec" onclick="toggleTheme()">Toggle Theme</button>
+        </div>
+      </div>
+      <div class="ds-panel">
+        <div class="ds-title">⚠️ Danger Zone</div>
+        <button class="tbtn tbtn-danger" onclick="resetData()">Reset all data to defaults</button>
+      </div>
+    </div>`;
+}
+
+function changePassword() {
+  const np = document.getElementById('newPass').value, cp = document.getElementById('confPass').value;
+  if (!np || np.length < 6) { toast('Password must be at least 6 characters', 'err'); return; }
+  if (np !== cp) { toast('Passwords do not match', 'err'); return; }
+  CFG.ADMIN_PASS = np;
+  save('admin_auth', btoa(CFG.ADMIN_USER + ':' + np));
+  toast('Password updated (session only — update CFG.ADMIN_PASS in admin.html to persist)', 'ok');
+}
+
+/* ═══════════════════════════════════════════════════
+   ADD/EDIT MODAL
+═══════════════════════════════════════════════════ */
+function populateProviderSelect() {
+  const sel = document.getElementById('mProv');
+  if (!sel) return;
+  sel.innerHTML = '<option value="">— Select provider —</option>' +
+    (DATA?.providers||[]).map(p => `<option value="${p.id}">${p.name}</option>`).join('') +
+    '<option value="_new">➕ New Provider…</option>';
+}
+
+function openAddModal() {
+  editCid = null;
+  document.getElementById('addModalTitle').textContent = 'Add New Course';
+  document.getElementById('saveCourseBtn').textContent = 'Add Course';
+  ['mUrl','mName','mDesc','mNewProv'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  document.getElementById('mProv').value = '';
+  document.getElementById('mCert').value = 'free';
+  document.getElementById('newProvWrap').classList.add('hidden');
+  const dm = document.getElementById('aiMsg'); dm.className = 'detect-msg'; dm.textContent = '';
+  document.querySelectorAll('#tagPicker .tp-btn').forEach(b => b.classList.toggle('on', b.dataset.tag === 'beginner' || b.dataset.tag === 'nocode'));
+  document.querySelectorAll('#audPicker .tp-btn').forEach(b => b.classList.add('on'));
+  populateProviderSelect();
+  openModal('addModal');
+}
+
+function openEditModal(cid) {
+  const found = getC(cid); if (!found) return;
+  const { c, p } = found;
+  editCid = cid;
+  document.getElementById('addModalTitle').textContent = 'Edit Course';
+  document.getElementById('saveCourseBtn').textContent = 'Save Changes';
+  document.getElementById('mUrl').value  = c.link;
+  document.getElementById('mName').value = c.name;
+  document.getElementById('mDesc').value = c.desc || '';
+  document.getElementById('mCert').value = c.cert || 'free';
+  populateProviderSelect();
+  document.getElementById('mProv').value = p.id;
+  document.getElementById('newProvWrap').classList.add('hidden');
+  document.querySelectorAll('#tagPicker .tp-btn').forEach(b => b.classList.toggle('on', (c.tags||[]).includes(b.dataset.tag)));
+  document.querySelectorAll('#audPicker .tp-btn').forEach(b => b.classList.toggle('on', (c.aud||[]).includes(b.dataset.aud)));
+  openModal('addModal');
+}
+
+function saveCourse() {
+  const name = document.getElementById('mName').value.trim();
+  const url  = document.getElementById('mUrl').value.trim();
+  const provId = document.getElementById('mProv').value;
+  if (!name) { toast('Course name required', 'err'); return; }
+  if (!url)  { toast('URL required', 'err'); return; }
+  if (!provId) { toast('Select a provider', 'err'); return; }
+
+  const tags = [...document.querySelectorAll('#tagPicker .tp-btn.on')].map(b => b.dataset.tag);
+  const aud  = [...document.querySelectorAll('#audPicker .tp-btn.on')].map(b => b.dataset.aud);
+  const cert = document.getElementById('mCert').value;
+  const desc = document.getElementById('mDesc').value.trim() || '';
+  const link = /^https?:\/\//i.test(url) ? url : 'https://' + url;
+  const cl   = cert==='free'?'Free Cert':cert==='partial'?'Aid/Free':'No Cert';
+
+  if (editCid) {
+    // Edit
+    (DATA?.providers||[]).forEach(p => {
+      const idx = p.courses.findIndex(c => c.id === editCid);
+      if (idx !== -1) p.courses[idx] = { id: editCid, name, desc, tags, cert, cl, aud, link };
+    });
+    toast('Course updated ✓', 'ok');
+  } else {
+    // Duplicate check
+    const norm = link.toLowerCase().replace(/\/$/,'');
+    const dup = (DATA?.providers||[]).flatMap(p => p.courses).find(c => c.link.toLowerCase().replace(/\/$/,'') === norm);
+    if (dup) { toast('This URL is already in the dataset', 'err'); return; }
+
+    let prov = (DATA?.providers||[]).find(p => p.id === provId);
+    if (provId === '_new') {
+      const nn = document.getElementById('mNewProv').value.trim();
+      if (!nn) { toast('Enter provider name', 'err'); return; }
+      prov = { id: 'cp_'+Date.now(), name: nn, sub: link, color: '#E6F1FB', tc: '#185FA5', courses: [] };
+      DATA.providers.push(prov);
+    }
+    if (!prov) { toast('Provider not found', 'err'); return; }
+    prov.courses.push({ id: 'c_'+Date.now(), name, desc, tags, cert, cl, aud, link });
+    toast('Course added ✓', 'ok');
+  }
+
+  saveData();
+  if (CFG.JSONBIN_KEY) syncToCloud();
+  closeModal('addModal');
+  courses();
+}
+
+function deleteCourse(cid, pid) {
+  if (!confirm('Delete this course?')) return;
+  const prov = (DATA?.providers||[]).find(p => p.id === pid);
+  if (prov) { prov.courses = prov.courses.filter(c => c.id !== cid); saveData(); if (CFG.JSONBIN_KEY) syncToCloud(); courses(); toast('Course deleted', 'def'); }
+}
+
+function deleteProvider(pid) {
+  const prov = (DATA?.providers||[]).find(p => p.id === pid);
+  if (!prov) return;
+  if (!confirm(`Delete provider "${prov.name}" and all ${prov.courses.length} courses? This cannot be undone.`)) return;
+  DATA.providers = DATA.providers.filter(p => p.id !== pid);
+  saveData(); if (CFG.JSONBIN_KEY) syncToCloud(); providers();
+  toast('Provider deleted', 'def');
+}
+
+function saveProvider() {
+  const name = document.getElementById('pName').value.trim();
+  if (!name) { toast('Provider name required', 'err'); return; }
+  const prov = { id: 'p_' + Date.now(), name, sub: document.getElementById('pSub').value.trim(), color: document.getElementById('pColor').value, tc: document.getElementById('pTextColor').value, courses: [] };
+  DATA.providers.push(prov); saveData(); if (CFG.JSONBIN_KEY) syncToCloud();
+  closeModal('addProvModal'); providers(); toast('Provider added ✓', 'ok');
+}
+
+/* ═══════════════════════════════════════════════════
+   AI DETECT
+═══════════════════════════════════════════════════ */
+async function aiDetect() {
+  const url = document.getElementById('mUrl').value.trim();
+  if (!url) { showAiMsg('Enter a URL first', false); return; }
+  if (!/^https?:\/\//i.test(url)) { showAiMsg('URL must start with http:// or https://', false); return; }
+  const btn = document.getElementById('aiBtnEl'), ico = document.getElementById('aiIcon'), txt = document.getElementById('aiTxt');
+  btn.disabled = true; ico.classList.add('spin'); txt.textContent = 'Detecting…';
+  try {
+    let pageCtx = '';
+    try { const html = await fetch(CFG.CORS_PROXY + encodeURIComponent(url), {signal:AbortSignal.timeout(10000)}).then(r=>r.text()); const doc = new DOMParser().parseFromString(html,'text/html'); ['script','style','nav','footer'].forEach(t=>doc.querySelectorAll(t).forEach(e=>e.remove())); pageCtx = (doc.body?.textContent||'').replace(/\s+/g,' ').slice(0,3000); } catch {}
+    const prompt = pageCtx ? `Extract course details from page text. Return ONLY JSON:\n{"name":"","desc":"2 sentences","cert":"free or partial","tags":["beginner"],"aud":["educator","student"]}\nURL: ${url}\nPage: ${pageCtx}` : `Extract course metadata from URL. Return ONLY JSON:\n{"name":"","desc":"","cert":"free or partial","tags":["beginner"],"aud":["educator","student"]}\nURL: ${url}`;
+    const res = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 600, messages: [{role:'user',content:prompt}] }) });
+    if (!res.ok) throw new Error('API ' + res.status);
+    const data = await res.json();
+    const obj = JSON.parse((data?.content?.[0]?.text||'').replace(/```(?:json)?|```/g,'').trim());
+    if (obj?.name) {
+      document.getElementById('mName').value = obj.name; document.getElementById('mDesc').value = obj.desc||'';
+      if (obj.cert) document.getElementById('mCert').value = obj.cert==='free'?'free':'partial';
+      document.querySelectorAll('#tagPicker .tp-btn').forEach(b => b.classList.toggle('on', (obj.tags||[]).includes(b.dataset.tag)));
+      document.querySelectorAll('#audPicker .tp-btn').forEach(b => b.classList.toggle('on', (obj.aud||[]).includes(b.dataset.aud)));
+      showAiMsg(`✓ Auto-filled: "${obj.name}" — review and confirm.`, true);
+    } else { showAiMsg('Could not parse response — fill in manually.', false); }
+  } catch (e) { showAiMsg('Detection failed (' + e.message + ')', false); }
+  finally { btn.disabled = false; ico.classList.remove('spin'); txt.textContent = 'AI Fill'; }
+}
+function showAiMsg(msg, ok) { const el = document.getElementById('aiMsg'); el.textContent = msg; el.className = 'detect-msg ' + (ok ? 'ok' : 'err'); }
+
+/* ═══════════════════════════════════════════════════
+   EXPORT / IMPORT
+═══════════════════════════════════════════════════ */
+function doExport(fmt) {
+  const rows = []; (DATA?.providers||[]).forEach(p => p.courses.forEach(c => rows.push({ Provider:p.name,'Course Name':c.name,Description:c.desc,Certificate:c.cert==='free'?'Free':c.cert==='partial'?'Audit/Aid':'None',Tags:(c.tags||[]).join('; '),Audience:(c.aud||[]).join('; '),URL:c.link })));
+  if (fmt === 'json') { dl(new Blob([JSON.stringify({ meta:{ ...DATA?.meta, exported: new Date().toISOString() }, providers: DATA?.providers }, null, 2)],{type:'application/json'}),'courses.json'); }
+  else if (fmt === 'csv') { const H=['Provider','Course Name','Description','Certificate','Tags','Audience','URL']; dl(new Blob([[H.join(','),...rows.map(r=>H.map(h=>`"${String(r[h]||'').replace(/"/g,'""')}"`).join(','))].join('\n')],{type:'text/csv'}),'courses.csv'); }
+  else if (fmt === 'md') { let md='# Free AI Courses\n\n'; (DATA?.providers||[]).forEach(p=>{md+=`## ${p.name}\n*${p.sub}*\n\n`;p.courses.forEach(c=>{md+=`### ${c.name}\n- **Cert:** ${c.cl} | **Aud:** ${(c.aud||[]).join(', ')}\n- [Open](${c.link})\n\n> ${c.desc}\n\n---\n\n`;});}); dl(new Blob([md],{type:'text/markdown'}),'courses.md'); }
+  toast('Exported ✓', 'ok');
+}
+function dl(blob, name) { const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(()=>URL.revokeObjectURL(a.href),1000); }
+function importJSON(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const rd = new FileReader(); rd.onload = ev => {
+    try { const d = JSON.parse(ev.target.result); const imp = d.providers||d; if (!Array.isArray(imp)) throw new Error('Invalid'); let added=0; imp.forEach(p=>{ let prov=(DATA?.providers||[]).find(x=>x.id===p.id||x.name.toLowerCase()===p.name.toLowerCase()); if(!prov){prov={...p,courses:[]};DATA.providers.push(prov);} (p.courses||[]).forEach(c=>{ if(!prov.courses.find(x=>x.id===c.id)){prov.courses.push(c);added++;} }); }); saveData(); dashboard(); toast(`Imported ${added} courses ✓`,'ok'); } catch(err) { toast('Import failed: '+err.message,'err'); } e.target.value='';
+  }; rd.readAsText(file);
+}
+function resetData() { if (confirm('Reset to default dataset?')) { localStorage.removeItem('ai_admin_data'); fetchData().then(()=>{dashboard();toast('Reset to defaults','ok');}); } }
+
+/* ═══════════════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════════════ */
+const TM2 = { nocode:['No-Code','t-nocode'],beginner:['Beginner','t-beginner'],intermediate:['Intermediate','t-int'],dev:['Developer','t-dev'] };
+const AM2 = { educator:['Educator','t-educator'],student:['Student','t-student'] };
+const mkTag = t => TM2[t] ? `<span class="tag ${TM2[t][1]}">${TM2[t][0]}</span>` : '';
+const mkAud = a => AM2[a] ? `<span class="tag ${AM2[a][1]}">${AM2[a][0]}</span>` : '';
+
+function getC(cid) { for (const p of (DATA?.providers||[])) { const c = p.courses.find(x=>x.id===cid); if(c) return{c,p}; } return null; }
+function openModal(id)  { document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+document.querySelectorAll('.mo').forEach(o => o.addEventListener('click', function(e) { if(e.target===this) { this.classList.remove('open'); document.body.style.overflow=''; } }));
+
+function toggleTheme() { const t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'; document.documentElement.setAttribute('data-theme',t); localStorage.setItem('theme',t); }
+
+function toast(msg, type='def') {
+  const wrap = document.getElementById('toastStack');
+  const el = document.createElement('div');
+  const ico = { ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>', err:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>', def:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>', info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>' };
+  el.className = `toast t-${type}`; el.innerHTML = (ico[type]||ico.def) + msg;
+  wrap.appendChild(el);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('show')));
+  setTimeout(()=>{ el.classList.remove('show'); setTimeout(()=>el.remove(),350); },3200);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key==='Escape') { document.querySelectorAll('.mo.open').forEach(m=>{ m.classList.remove('open'); document.body.style.overflow=''; }); }
+});
+</script>
+</body>
+</html>
