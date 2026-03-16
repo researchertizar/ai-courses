@@ -1,677 +1,1813 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Free AI courses with certificates for educators and students. Curated, verified, and always free.">
-<meta name="theme-color" id="themeColor" content="#FFFFFF">
-<meta property="og:title" content="Free AI Courses — Complete Dataset">
-<meta property="og:description" content="34+ free AI courses with certificates for educators and students.">
-<link rel="manifest" id="manifestLink">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='38' fill='%231A1916'/%3E%3Cg fill='white'%3E%3Cpolygon points='90,28 36,56 90,84 144,56'/%3E%3Cpolyline points='36,100 90,128 144,100' fill='none' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3Cpolyline points='36,72 90,100 144,72' fill='none' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E">
-<title>Free AI Courses</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script>
-(function(){
-  var t = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
-  document.documentElement.setAttribute('data-theme', t);
-})();
-</script>
-<style>
-/* ══════════════════════════════════════════════════
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description"
+    content="Free AI courses with certificates for educators and students. Curated, verified, and always free.">
+  <meta name="theme-color" id="themeColor" content="#FFFFFF">
+  <meta property="og:title" content="Free AI Courses — Complete Dataset">
+  <meta property="og:description" content="34+ free AI courses with certificates for educators and students.">
+  <link rel="manifest" id="manifestLink">
+  <link rel="apple-touch-icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='38' fill='%231A1916'/%3E%3Cg fill='white'%3E%3Cpolygon points='90,28 36,56 90,84 144,56'/%3E%3Cpolyline points='36,100 90,128 144,100' fill='none' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3Cpolyline points='36,72 90,100 144,72' fill='none' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E">
+  <title>Free AI Courses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>
+    /* ══════════════════════════════════════════════════
    DESIGN SYSTEM
 ══════════════════════════════════════════════════ */
-:root {
-  --font: 'Plus Jakarta Sans', system-ui, sans-serif;
-  /* Surface */
-  --bg:       #F4F2EE;
-  --surface:  #FFFFFF;
-  --surface2: #F9F8F6;
-  --surface3: #EEECEA;
-  --overlay:  rgba(0,0,0,.48);
-  /* Border */
-  --line:  #E4E1DB;
-  --line2: #D0CCC4;
-  /* Text */
-  --ink:  #18170F;
-  --ink2: #5A5850;
-  --ink3: #9A978F;
-  --inv:  #FFFFFF;
-  /* Brand */
-  --brand:    #1A1916;
-  --brand-h:  #3D3B35;
-  /* Semantic */
-  --green:    #166534; --green-s: #DCFCE7; --green-b: #BBF7D0;
-  --blue:     #1D4ED8; --blue-s:  #DBEAFE; --blue-b:  #BFDBFE;
-  --amber:    #92400E; --amber-s: #FEF3C7; --amber-b: #FDE68A;
-  --rose:     #9F1239; --rose-s:  #FFE4E6; --rose-b:  #FECDD3;
-  --purple:   #5B21B6; --purple-s:#EDE9FE; --purple-b:#DDD6FE;
-  --teal:     #134E4A; --teal-s:  #CCFBF1; --teal-b:  #99F6E4;
-  --slate:    #334155; --slate-s: #F1F5F9; --slate-b: #E2E8F0;
-  /* Shadows */
-  --s1: 0 1px 2px rgba(0,0,0,.05);
-  --s2: 0 4px 12px rgba(0,0,0,.06);
-  --s3: 0 8px 24px rgba(0,0,0,.08);
-  --s4: 0 20px 60px rgba(0,0,0,.12);
-  /* Radii */
-  --r1: 6px; --r2: 10px; --r3: 14px; --r4: 20px; --r5: 28px;
-  /* Motion */
-  --t: .15s ease; --tS: .25s cubic-bezier(.4,0,.2,1);
-}
-[data-theme="dark"] {
-  --bg:       #0F0E0A;
-  --surface:  #1A1915;
-  --surface2: #222118;
-  --surface3: #2C2B22;
-  --overlay:  rgba(0,0,0,.65);
-  --line:  #2E2D24; --line2: #3E3D33;
-  --ink:  #F2EFE6; --ink2: #A8A49A; --ink3: #68665E; --inv: #0F0E0A;
-  --brand: #F2EFE6; --brand-h: #D8D5CC;
-  --green:  #86EFAC; --green-s:  #052E16; --green-b:  #14532D;
-  --blue:   #93C5FD; --blue-s:   #0C1A3E; --blue-b:   #1E3A6E;
-  --amber:  #FCD34D; --amber-s:  #2D1B00; --amber-b:  #5C3500;
-  --rose:   #FDA4AF; --rose-s:   #2D0A0F; --rose-b:   #5C1520;
-  --purple: #C4B5FD; --purple-s: #1E0A40; --purple-b: #3B1A7A;
-  --teal:   #5EEAD4; --teal-s:   #042F2E; --teal-b:   #0D5E5A;
-  --slate:  #CBD5E1; --slate-s:  #0F172A; --slate-b:  #1E293B;
-}
-/* ══════════════════════════════════════════════════
+    :root {
+      --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+      /* Surface */
+      --bg: #F4F2EE;
+      --surface: #FFFFFF;
+      --surface2: #F9F8F6;
+      --surface3: #EEECEA;
+      --overlay: rgba(0, 0, 0, .48);
+      /* Border */
+      --line: #E4E1DB;
+      --line2: #D0CCC4;
+      /* Text */
+      --ink: #18170F;
+      --ink2: #5A5850;
+      --ink3: #9A978F;
+      --inv: #FFFFFF;
+      /* Brand */
+      --brand: #1A1916;
+      --brand-h: #3D3B35;
+      /* Semantic */
+      --green: #166534;
+      --green-s: #DCFCE7;
+      --green-b: #BBF7D0;
+      --blue: #1D4ED8;
+      --blue-s: #DBEAFE;
+      --blue-b: #BFDBFE;
+      --amber: #92400E;
+      --amber-s: #FEF3C7;
+      --amber-b: #FDE68A;
+      --rose: #9F1239;
+      --rose-s: #FFE4E6;
+      --rose-b: #FECDD3;
+      --purple: #5B21B6;
+      --purple-s: #EDE9FE;
+      --purple-b: #DDD6FE;
+      --teal: #134E4A;
+      --teal-s: #CCFBF1;
+      --teal-b: #99F6E4;
+      --slate: #334155;
+      --slate-s: #F1F5F9;
+      --slate-b: #E2E8F0;
+      /* Shadows */
+      --s1: 0 1px 2px rgba(0, 0, 0, .05);
+      --s2: 0 4px 12px rgba(0, 0, 0, .06);
+      --s3: 0 8px 24px rgba(0, 0, 0, .08);
+      --s4: 0 20px 60px rgba(0, 0, 0, .12);
+      /* Radii */
+      --r1: 6px;
+      --r2: 10px;
+      --r3: 14px;
+      --r4: 20px;
+      --r5: 28px;
+      /* Motion */
+      --t: .15s ease;
+      --tS: .25s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0F0E0A;
+      --surface: #1A1915;
+      --surface2: #222118;
+      --surface3: #2C2B22;
+      --overlay: rgba(0, 0, 0, .65);
+      --line: #2E2D24;
+      --line2: #3E3D33;
+      --ink: #F2EFE6;
+      --ink2: #A8A49A;
+      --ink3: #68665E;
+      --inv: #0F0E0A;
+      --brand: #F2EFE6;
+      --brand-h: #D8D5CC;
+      --green: #86EFAC;
+      --green-s: #052E16;
+      --green-b: #14532D;
+      --blue: #93C5FD;
+      --blue-s: #0C1A3E;
+      --blue-b: #1E3A6E;
+      --amber: #FCD34D;
+      --amber-s: #2D1B00;
+      --amber-b: #5C3500;
+      --rose: #FDA4AF;
+      --rose-s: #2D0A0F;
+      --rose-b: #5C1520;
+      --purple: #C4B5FD;
+      --purple-s: #1E0A40;
+      --purple-b: #3B1A7A;
+      --teal: #5EEAD4;
+      --teal-s: #042F2E;
+      --teal-b: #0D5E5A;
+      --slate: #CBD5E1;
+      --slate-s: #0F172A;
+      --slate-b: #1E293B;
+    }
+
+    /* ══════════════════════════════════════════════════
    BASE
 ══════════════════════════════════════════════════ */
-*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
-body {
-  font-family: var(--font);
-  background: var(--bg);
-  color: var(--ink);
-  font-size: 15px;
-  line-height: 1.6;
-  min-height: 100dvh;
-  -webkit-font-smoothing: antialiased;
-  transition: background var(--tS), color var(--tS);
-}
-a { color: var(--blue); text-decoration: none; }
-a:hover { text-decoration: underline; }
-button { cursor: pointer; font-family: var(--font); border: none; background: none; color: inherit; }
-img, svg { display: block; }
-input, select, textarea { font-family: var(--font); }
-.hidden { display: none !important; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
-:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 3px; }
-/* ══════════════════════════════════════════════════
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100dvh;
+      -webkit-font-smoothing: antialiased;
+      transition: background var(--tS), color var(--tS);
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: var(--font);
+      border: none;
+      background: none;
+      color: inherit;
+    }
+
+    img,
+    svg {
+      display: block;
+    }
+
+    input,
+    select,
+    textarea {
+      font-family: var(--font);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+      border-radius: 3px;
+    }
+
+    /* ══════════════════════════════════════════════════
    SKIP NAV
 ══════════════════════════════════════════════════ */
-.skip { position: absolute; top: -50px; left: 1rem; padding: 8px 16px; background: var(--brand); color: var(--inv); border-radius: var(--r2); font-size: 13px; font-weight: 600; z-index: 999; transition: top .2s; }
-.skip:focus { top: 1rem; }
-/* ══════════════════════════════════════════════════
+    .skip {
+      position: absolute;
+      top: -50px;
+      left: 1rem;
+      padding: 8px 16px;
+      background: var(--brand);
+      color: var(--inv);
+      border-radius: var(--r2);
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 999;
+      transition: top .2s;
+    }
+
+    .skip:focus {
+      top: 1rem;
+    }
+
+    /* ══════════════════════════════════════════════════
    SYSTEM BARS
 ══════════════════════════════════════════════════ */
-.sys-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 500; padding: 10px 20px; font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(-110%); transition: transform var(--tS); }
-.sys-bar.show { transform: translateY(0); }
-.bar-offline { background: var(--amber-s); color: var(--amber); border-bottom: 1px solid var(--amber-b); }
-.bar-update  { background: var(--blue); color: white; }
-.bar-install { background: var(--surface); color: var(--ink); border-bottom: 1px solid var(--line); box-shadow: var(--s3); }
-.bar-btn { padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; }
-.bar-update .bar-btn { background: rgba(255,255,255,.2); color: white; border: 1px solid rgba(255,255,255,.4); }
-.bar-install .bar-btn.primary { background: var(--brand); color: var(--inv); }
-.bar-install .bar-btn.sec { background: var(--surface3); color: var(--ink2); }
-/* ══════════════════════════════════════════════════
+    .sys-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transform: translateY(-110%);
+      transition: transform var(--tS);
+    }
+
+    .sys-bar.show {
+      transform: translateY(0);
+    }
+
+    .bar-offline {
+      background: var(--amber-s);
+      color: var(--amber);
+      border-bottom: 1px solid var(--amber-b);
+    }
+
+    .bar-update {
+      background: var(--blue);
+      color: white;
+    }
+
+    .bar-install {
+      background: var(--surface);
+      color: var(--ink);
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--s3);
+    }
+
+    .bar-btn {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+    }
+
+    .bar-update .bar-btn {
+      background: rgba(255, 255, 255, .2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, .4);
+    }
+
+    .bar-install .bar-btn.primary {
+      background: var(--brand);
+      color: var(--inv);
+    }
+
+    .bar-install .bar-btn.sec {
+      background: var(--surface3);
+      color: var(--ink2);
+    }
+
+    /* ══════════════════════════════════════════════════
    NAV
 ══════════════════════════════════════════════════ */
-.nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255,255,255,.88);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border-bottom: 1px solid var(--line);
-  transition: background var(--tS);
-}
-[data-theme="dark"] .nav { background: rgba(26,25,21,.88); }
-.nav-inner {
-  max-width: 1280px; margin: 0 auto;
-  padding: 0 24px;
-  height: 64px;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-}
-.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
-.nav-logo { width: 36px; height: 36px; border-radius: var(--r2); background: var(--brand); display: flex; align-items: center; justify-content: center; }
-.nav-logo svg { width: 20px; height: 20px; stroke: var(--inv); fill: none; stroke-width: 2; stroke-linecap: round; }
-.nav-title { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -.02em; }
-.nav-right { display: flex; align-items: center; gap: 8px; }
-.nav-search {
-  position: relative;
-  display: flex; align-items: center;
-}
-.nav-search-input {
-  width: 220px; padding: 8px 12px 8px 36px;
-  border: 1px solid var(--line); border-radius: 20px;
-  background: var(--surface2); color: var(--ink);
-  font-size: 13px; transition: all var(--t);
-}
-.nav-search-input:focus { outline: none; border-color: var(--blue); width: 280px; background: var(--surface); box-shadow: 0 0 0 3px var(--blue-s); }
-.nav-search-input::placeholder { color: var(--ink3); }
-.nav-search-ico { position: absolute; left: 12px; color: var(--ink3); pointer-events: none; }
-.nav-search-ico svg { width: 14px; height: 14px; }
-.nav-btn { width: 36px; height: 36px; border-radius: var(--r2); border: 1px solid var(--line); background: var(--surface); display: flex; align-items: center; justify-content: center; color: var(--ink2); transition: all var(--t); }
-.nav-btn:hover { background: var(--surface3); color: var(--ink); border-color: var(--line2); }
-.nav-btn svg { width: 16px; height: 16px; pointer-events: none; }
-.nav-admin-link { font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 20px; background: var(--surface3); color: var(--ink2); border: 1px solid var(--line); transition: all var(--t); }
-.nav-admin-link:hover { background: var(--brand); color: var(--inv); border-color: var(--brand); text-decoration: none; }
-/* ══════════════════════════════════════════════════
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, .88);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      border-bottom: 1px solid var(--line);
+      transition: background var(--tS);
+    }
+
+    [data-theme="dark"] .nav {
+      background: rgba(26, 25, 21, .88);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--r2);
+      background: var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--inv);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .nav-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -.02em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-search {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-search-input {
+      width: 220px;
+      padding: 8px 12px 8px 36px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface2);
+      color: var(--ink);
+      font-size: 13px;
+      transition: all var(--t);
+    }
+
+    .nav-search-input:focus {
+      outline: none;
+      border-color: var(--blue);
+      width: 280px;
+      background: var(--surface);
+      box-shadow: 0 0 0 3px var(--blue-s);
+    }
+
+    .nav-search-input::placeholder {
+      color: var(--ink3);
+    }
+
+    .nav-search-ico {
+      position: absolute;
+      left: 12px;
+      color: var(--ink3);
+      pointer-events: none;
+    }
+
+    .nav-search-ico svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .nav-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--r2);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink2);
+      transition: all var(--t);
+    }
+
+    .nav-btn:hover {
+      background: var(--surface3);
+      color: var(--ink);
+      border-color: var(--line2);
+    }
+
+    .nav-btn svg {
+      width: 16px;
+      height: 16px;
+      pointer-events: none;
+    }
+
+    .nav-admin-link {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 20px;
+      background: var(--surface3);
+      color: var(--ink2);
+      border: 1px solid var(--line);
+      transition: all var(--t);
+    }
+
+    .nav-admin-link:hover {
+      background: var(--brand);
+      color: var(--inv);
+      border-color: var(--brand);
+      text-decoration: none;
+    }
+
+    /* ══════════════════════════════════════════════════
    HERO
 ══════════════════════════════════════════════════ */
-.hero { max-width: 1280px; margin: 0 auto; padding: 56px 24px 40px; }
-.hero-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; background: var(--green-s); color: var(--green); font-size: 12px; font-weight: 600; margin-bottom: 16px; border: 1px solid var(--green-b); }
-.hero-eyebrow svg { width: 12px; height: 12px; }
-.hero-h1 { font-size: clamp(26px, 4vw, 42px); font-weight: 800; letter-spacing: -.03em; line-height: 1.15; color: var(--ink); margin-bottom: 12px; }
-.hero-h1 span { color: var(--blue); }
-.hero-sub { font-size: 16px; color: var(--ink2); max-width: 560px; line-height: 1.65; margin-bottom: 28px; }
-/* Stat pills */
-.hero-stats { display: flex; flex-wrap: wrap; gap: 10px; }
-.hstat { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--s1); font-size: 13px; }
-.hstat-num { font-size: 18px; font-weight: 800; letter-spacing: -.02em; color: var(--ink); }
-.hstat-lbl { color: var(--ink2); }
-.hstat.g .hstat-num { color: var(--green); }
-.hstat.b .hstat-num { color: var(--blue); }
-.hstat.p .hstat-num { color: var(--purple); }
-/* ══════════════════════════════════════════════════
+    .hero {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 56px 24px 40px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--green-s);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      border: 1px solid var(--green-b);
+    }
+
+    .hero-eyebrow svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .hero-h1 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .hero-h1 span {
+      color: var(--blue);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--ink2);
+      max-width: 560px;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    /* Stat pills */
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hstat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--s1);
+      font-size: 13px;
+    }
+
+    .hstat-num {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--ink);
+    }
+
+    .hstat-lbl {
+      color: var(--ink2);
+    }
+
+    .hstat.g .hstat-num {
+      color: var(--green);
+    }
+
+    .hstat.b .hstat-num {
+      color: var(--blue);
+    }
+
+    .hstat.p .hstat-num {
+      color: var(--purple);
+    }
+
+    /* ══════════════════════════════════════════════════
    FILTERS BAR
 ══════════════════════════════════════════════════ */
-.filters-wrap { position: sticky; top: 64px; z-index: 90; background: var(--bg); border-bottom: 1px solid var(--line); }
-.filters { max-width: 1280px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; gap: 8px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-.filters::-webkit-scrollbar { display: none; }
-.filter-sep { width: 1px; height: 20px; background: var(--line2); flex-shrink: 0; }
-.chip {
-  flex-shrink: 0; padding: 6px 14px; border-radius: 20px;
-  font-size: 13px; font-weight: 500; border: 1px solid var(--line);
-  background: var(--surface); color: var(--ink2);
-  transition: all var(--t); cursor: pointer; white-space: nowrap;
-}
-.chip:hover { border-color: var(--line2); color: var(--ink); }
-.chip.on { background: var(--brand); color: var(--inv); border-color: var(--brand); }
-.sort-sel {
-  flex-shrink: 0; padding: 6px 10px; border-radius: var(--r2);
-  font-size: 13px; border: 1px solid var(--line); background: var(--surface);
-  color: var(--ink2); cursor: pointer; transition: all var(--t);
-}
-.sort-sel:focus { outline: none; border-color: var(--blue); }
-/* ══════════════════════════════════════════════════
+    .filters-wrap {
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .filters {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--line2);
+      flex-shrink: 0;
+    }
+
+    .chip {
+      flex-shrink: 0;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink2);
+      transition: all var(--t);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .chip:hover {
+      border-color: var(--line2);
+      color: var(--ink);
+    }
+
+    .chip.on {
+      background: var(--brand);
+      color: var(--inv);
+      border-color: var(--brand);
+    }
+
+    .sort-sel {
+      flex-shrink: 0;
+      padding: 6px 10px;
+      border-radius: var(--r2);
+      font-size: 13px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink2);
+      cursor: pointer;
+      transition: all var(--t);
+    }
+
+    .sort-sel:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+
+    /* ══════════════════════════════════════════════════
    MAIN CONTENT
 ══════════════════════════════════════════════════ */
-.main { max-width: 1280px; margin: 0 auto; padding: 24px 24px 80px; }
-.results-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; gap: 8px; flex-wrap: wrap; }
-.results-text { font-size: 13px; color: var(--ink2); }
-.results-text b { color: var(--ink); font-weight: 600; }
-.view-toggle { display: flex; gap: 2px; background: var(--surface3); border-radius: var(--r2); padding: 3px; border: 1px solid var(--line); }
-.vt-btn { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; color: var(--ink3); transition: all var(--t); }
-.vt-btn.on { background: var(--surface); color: var(--ink); box-shadow: var(--s1); }
-.vt-btn svg { width: 13px; height: 13px; pointer-events: none; }
-/* ── Provider Accordion ─────────────────────────── */
-.provider-block { margin-bottom: 16px; }
-.prov-hdr {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 18px; background: var(--surface);
-  border: 1px solid var(--line); border-radius: var(--r3);
-  cursor: pointer; transition: all var(--t); user-select: none;
-}
-.prov-hdr:hover { border-color: var(--line2); box-shadow: var(--s2); }
-.provider-block.open .prov-hdr { border-radius: var(--r3) var(--r3) 0 0; border-bottom-color: transparent; }
-.prov-pill { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px; flex-shrink: 0; letter-spacing: .02em; text-transform: uppercase; }
-.prov-info { flex: 1; min-width: 0; }
-.prov-name { font-size: 14px; font-weight: 700; color: var(--ink); }
-.prov-sub  { font-size: 12px; color: var(--ink3); margin-top: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.prov-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.prov-count { font-size: 12px; color: var(--ink3); }
-.prov-chevron svg { width: 14px; height: 14px; color: var(--ink3); transition: transform var(--t); pointer-events: none; }
-.provider-block.open .prov-chevron svg { transform: rotate(180deg); }
-/* ── Course Body ────────────────────────────────── */
-.prov-body { border: 1px solid var(--line); border-top: none; border-radius: 0 0 var(--r3) var(--r3); overflow: hidden; display: none; }
-.provider-block.open .prov-body { display: block; }
-/* TABLE */
-.ctable { width: 100%; border-collapse: collapse; table-layout: fixed; }
-.ctable thead th { padding: 10px 16px; background: var(--surface2); border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--ink3); text-align: left; cursor: pointer; transition: background var(--t); user-select: none; }
-.ctable thead th:hover { background: var(--surface3); color: var(--ink2); }
-.ctable thead th.asc::after { content: ' ↑'; }
-.ctable thead th.desc::after { content: ' ↓'; }
-.ctable thead th:first-child { padding-left: 20px; }
-.ctable tbody tr { cursor: pointer; transition: background var(--t); }
-.ctable tbody tr:hover td { background: var(--surface2); }
-.ctable tbody td { padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 13px; }
-.ctable tbody td:first-child { padding-left: 20px; }
-.ctable tbody tr:last-child td { border-bottom: none; }
-.c-title { font-weight: 600; color: var(--ink); line-height: 1.4; }
-.c-desc  { font-size: 12px; color: var(--ink2); margin-top: 3px; line-height: 1.55; }
-.c-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
-/* CARD GRID */
-.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; padding: 14px; background: var(--surface2); }
-.course-card {
-  background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--r3); padding: 16px;
-  display: flex; flex-direction: column; gap: 8px;
-  cursor: pointer; transition: all var(--tS);
-}
-.course-card:hover { border-color: var(--line2); box-shadow: var(--s3); transform: translateY(-2px); }
-.card-title { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; }
-.card-desc  { font-size: 12px; color: var(--ink2); line-height: 1.55; flex: 1; }
-.card-foot  { display: flex; align-items: center; justify-content: space-between; padding-top: 8px; border-top: 1px solid var(--line); gap: 6px; flex-wrap: wrap; }
-/* ── Tags ───────────────────────────────────────── */
-.tag { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
-.t-nocode     { background: var(--slate-s); color: var(--slate); }
-.t-beginner   { background: var(--blue-s);  color: var(--blue); }
-.t-int        { background: var(--amber-s); color: var(--amber); }
-.t-dev        { background: var(--rose-s);  color: var(--rose); }
-.t-educator   { background: var(--purple-s);color: var(--purple); }
-.t-student    { background: var(--teal-s);  color: var(--teal); }
-.cert-free    { background: var(--green-s); color: var(--green); border: 1px solid var(--green-b); }
-.cert-partial { background: var(--amber-s); color: var(--amber); border: 1px solid var(--amber-b); }
-.cert-badge   { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
-/* ── Action Button ──────────────────────────────── */
-.open-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: var(--r1); background: var(--brand); color: var(--inv); transition: all var(--t); white-space: nowrap; }
-.open-link:hover { background: var(--brand-h); text-decoration: none; }
-.open-link svg { width: 12px; height: 12px; pointer-events: none; }
-.bm-btn { width: 28px; height: 28px; border-radius: var(--r1); display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); background: var(--surface); color: var(--ink3); transition: all var(--t); }
-.bm-btn:hover { border-color: var(--amber-b); color: var(--amber); background: var(--amber-s); }
-.bm-btn.on { border-color: var(--amber-b); color: var(--amber); background: var(--amber-s); }
-.bm-btn svg { width: 13px; height: 13px; pointer-events: none; }
-/* ══════════════════════════════════════════════════
+    .main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 80px;
+    }
+
+    .results-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .results-text {
+      font-size: 13px;
+      color: var(--ink2);
+    }
+
+    .results-text b {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 2px;
+      background: var(--surface3);
+      border-radius: var(--r2);
+      padding: 3px;
+      border: 1px solid var(--line);
+    }
+
+    .vt-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink3);
+      transition: all var(--t);
+    }
+
+    .vt-btn.on {
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: var(--s1);
+    }
+
+    .vt-btn svg {
+      width: 13px;
+      height: 13px;
+      pointer-events: none;
+    }
+
+    /* ── Provider Accordion ─────────────────────────── */
+    .provider-block {
+      margin-bottom: 16px;
+    }
+
+    .prov-hdr {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r3);
+      cursor: pointer;
+      transition: all var(--t);
+      user-select: none;
+    }
+
+    .prov-hdr:hover {
+      border-color: var(--line2);
+      box-shadow: var(--s2);
+    }
+
+    .provider-block.open .prov-hdr {
+      border-radius: var(--r3) var(--r3) 0 0;
+      border-bottom-color: transparent;
+    }
+
+    .prov-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    .prov-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .prov-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .prov-sub {
+      font-size: 12px;
+      color: var(--ink3);
+      margin-top: 1px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .prov-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .prov-count {
+      font-size: 12px;
+      color: var(--ink3);
+    }
+
+    .prov-chevron svg {
+      width: 14px;
+      height: 14px;
+      color: var(--ink3);
+      transition: transform var(--t);
+      pointer-events: none;
+    }
+
+    .provider-block.open .prov-chevron svg {
+      transform: rotate(180deg);
+    }
+
+    /* ── Course Body ────────────────────────────────── */
+    .prov-body {
+      border: 1px solid var(--line);
+      border-top: none;
+      border-radius: 0 0 var(--r3) var(--r3);
+      overflow: hidden;
+      display: none;
+    }
+
+    .provider-block.open .prov-body {
+      display: block;
+    }
+
+    /* TABLE */
+    .ctable {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .ctable thead th {
+      padding: 10px 16px;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--line);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--ink3);
+      text-align: left;
+      cursor: pointer;
+      transition: background var(--t);
+      user-select: none;
+    }
+
+    .ctable thead th:hover {
+      background: var(--surface3);
+      color: var(--ink2);
+    }
+
+    .ctable thead th.asc::after {
+      content: ' ↑';
+    }
+
+    .ctable thead th.desc::after {
+      content: ' ↓';
+    }
+
+    .ctable thead th:first-child {
+      padding-left: 20px;
+    }
+
+    .ctable tbody tr {
+      cursor: pointer;
+      transition: background var(--t);
+    }
+
+    .ctable tbody tr:hover td {
+      background: var(--surface2);
+    }
+
+    .ctable tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 13px;
+    }
+
+    .ctable tbody td:first-child {
+      padding-left: 20px;
+    }
+
+    .ctable tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .c-title {
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .c-desc {
+      font-size: 12px;
+      color: var(--ink2);
+      margin-top: 3px;
+      line-height: 1.55;
+    }
+
+    .c-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    /* CARD GRID */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      padding: 14px;
+      background: var(--surface2);
+    }
+
+    .course-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r3);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      cursor: pointer;
+      transition: all var(--tS);
+    }
+
+    .course-card:hover {
+      border-color: var(--line2);
+      box-shadow: var(--s3);
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--ink2);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Tags ───────────────────────────────────────── */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .t-nocode {
+      background: var(--slate-s);
+      color: var(--slate);
+    }
+
+    .t-beginner {
+      background: var(--blue-s);
+      color: var(--blue);
+    }
+
+    .t-int {
+      background: var(--amber-s);
+      color: var(--amber);
+    }
+
+    .t-dev {
+      background: var(--rose-s);
+      color: var(--rose);
+    }
+
+    .t-educator {
+      background: var(--purple-s);
+      color: var(--purple);
+    }
+
+    .t-student {
+      background: var(--teal-s);
+      color: var(--teal);
+    }
+
+    .cert-free {
+      background: var(--green-s);
+      color: var(--green);
+      border: 1px solid var(--green-b);
+    }
+
+    .cert-partial {
+      background: var(--amber-s);
+      color: var(--amber);
+      border: 1px solid var(--amber-b);
+    }
+
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ── Action Button ──────────────────────────────── */
+    .open-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--r1);
+      background: var(--brand);
+      color: var(--inv);
+      transition: all var(--t);
+      white-space: nowrap;
+    }
+
+    .open-link:hover {
+      background: var(--brand-h);
+      text-decoration: none;
+    }
+
+    .open-link svg {
+      width: 12px;
+      height: 12px;
+      pointer-events: none;
+    }
+
+    .bm-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--r1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink3);
+      transition: all var(--t);
+    }
+
+    .bm-btn:hover {
+      border-color: var(--amber-b);
+      color: var(--amber);
+      background: var(--amber-s);
+    }
+
+    .bm-btn.on {
+      border-color: var(--amber-b);
+      color: var(--amber);
+      background: var(--amber-s);
+    }
+
+    .bm-btn svg {
+      width: 13px;
+      height: 13px;
+      pointer-events: none;
+    }
+
+    /* ══════════════════════════════════════════════════
    DETAIL SHEET (bottom drawer on mobile, side drawer on desktop)
 ══════════════════════════════════════════════════ */
-.sheet-overlay { position: fixed; inset: 0; background: var(--overlay); z-index: 200; opacity: 0; pointer-events: none; transition: opacity var(--tS); }
-.sheet-overlay.open { opacity: 1; pointer-events: all; }
-.sheet {
-  position: fixed; right: 0; top: 0; bottom: 0;
-  width: min(480px, 94vw);
-  background: var(--surface); border-left: 1px solid var(--line);
-  box-shadow: var(--s4); z-index: 201;
-  transform: translateX(100%); transition: transform .28s cubic-bezier(.4,0,.2,1);
-  display: flex; flex-direction: column; overflow: hidden;
-}
-.sheet-overlay.open .sheet { transform: translateX(0); }
-.sheet-hdr { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 20px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
-.sheet-title { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.4; }
-.sheet-close { width: 32px; height: 32px; border-radius: var(--r2); border: 1px solid var(--line); background: var(--surface2); display: flex; align-items: center; justify-content: center; color: var(--ink2); transition: all var(--t); flex-shrink: 0; }
-.sheet-close:hover { background: var(--surface3); color: var(--ink); }
-.sheet-close svg { width: 14px; height: 14px; pointer-events: none; }
-.sheet-body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 18px; }
-.sheet-section { display: flex; flex-direction: column; gap: 6px; }
-.sheet-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--ink3); }
-.sheet-value { font-size: 14px; color: var(--ink2); line-height: 1.65; }
-.sheet-row { display: flex; flex-wrap: wrap; gap: 5px; }
-.sheet-cta { display: flex; align-items: center; justify-content: center; gap: 7px; width: 100%; padding: 13px; border-radius: var(--r3); background: var(--brand); color: var(--inv); font-size: 14px; font-weight: 700; transition: all var(--t); margin-top: auto; flex-shrink: 0; }
-.sheet-cta:hover { background: var(--brand-h); text-decoration: none; }
-.sheet-cta svg { width: 15px; height: 15px; pointer-events: none; }
-/* Ratings */
-.stars { display: flex; gap: 3px; }
-.star { font-size: 20px; cursor: pointer; transition: color var(--t); line-height: 1; background: none; border: none; color: var(--line2); }
-.star.on { color: var(--amber); }
-.stars:hover .star { color: var(--amber); }
-.stars .star:hover ~ .star { color: var(--line2); }
-/* Notes */
-.note-area { width: 100%; min-height: 80px; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r2); background: var(--surface2); color: var(--ink); font-size: 13px; resize: none; line-height: 1.55; transition: border-color var(--t); }
-.note-area:focus { outline: none; border-color: var(--blue); }
-.note-save { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: var(--r1); background: var(--green-s); color: var(--green); border: 1px solid var(--green-b); transition: all var(--t); margin-top: 5px; }
-.note-save:hover { background: var(--green); color: white; }
-/* Share row */
-.share-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.share-btn { font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: var(--r1); border: 1px solid var(--line); background: var(--surface2); color: var(--ink2); transition: all var(--t); }
-.share-btn:hover { background: var(--surface3); color: var(--ink); }
-/* ══════════════════════════════════════════════════
+    .sheet-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--tS);
+    }
+
+    .sheet-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .sheet {
+      position: fixed;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: min(480px, 94vw);
+      background: var(--surface);
+      border-left: 1px solid var(--line);
+      box-shadow: var(--s4);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform .28s cubic-bezier(.4, 0, .2, 1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .sheet-overlay.open .sheet {
+      transform: translateX(0);
+    }
+
+    .sheet-hdr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+      flex-shrink: 0;
+    }
+
+    .sheet-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .sheet-close {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--r2);
+      border: 1px solid var(--line);
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink2);
+      transition: all var(--t);
+      flex-shrink: 0;
+    }
+
+    .sheet-close:hover {
+      background: var(--surface3);
+      color: var(--ink);
+    }
+
+    .sheet-close svg {
+      width: 14px;
+      height: 14px;
+      pointer-events: none;
+    }
+
+    .sheet-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .sheet-section {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .sheet-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--ink3);
+    }
+
+    .sheet-value {
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.65;
+    }
+
+    .sheet-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .sheet-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      width: 100%;
+      padding: 13px;
+      border-radius: var(--r3);
+      background: var(--brand);
+      color: var(--inv);
+      font-size: 14px;
+      font-weight: 700;
+      transition: all var(--t);
+      margin-top: auto;
+      flex-shrink: 0;
+    }
+
+    .sheet-cta:hover {
+      background: var(--brand-h);
+      text-decoration: none;
+    }
+
+    .sheet-cta svg {
+      width: 15px;
+      height: 15px;
+      pointer-events: none;
+    }
+
+    /* Ratings */
+    .stars {
+      display: flex;
+      gap: 3px;
+    }
+
+    .star {
+      font-size: 20px;
+      cursor: pointer;
+      transition: color var(--t);
+      line-height: 1;
+      background: none;
+      border: none;
+      color: var(--line2);
+    }
+
+    .star.on {
+      color: var(--amber);
+    }
+
+    .stars:hover .star {
+      color: var(--amber);
+    }
+
+    .stars .star:hover~.star {
+      color: var(--line2);
+    }
+
+    /* Notes */
+    .note-area {
+      width: 100%;
+      min-height: 80px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--r2);
+      background: var(--surface2);
+      color: var(--ink);
+      font-size: 13px;
+      resize: none;
+      line-height: 1.55;
+      transition: border-color var(--t);
+    }
+
+    .note-area:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+
+    .note-save {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--r1);
+      background: var(--green-s);
+      color: var(--green);
+      border: 1px solid var(--green-b);
+      transition: all var(--t);
+      margin-top: 5px;
+    }
+
+    .note-save:hover {
+      background: var(--green);
+      color: white;
+    }
+
+    /* Share row */
+    .share-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--r1);
+      border: 1px solid var(--line);
+      background: var(--surface2);
+      color: var(--ink2);
+      transition: all var(--t);
+    }
+
+    .share-btn:hover {
+      background: var(--surface3);
+      color: var(--ink);
+    }
+
+    /* ══════════════════════════════════════════════════
    EMPTY STATE
 ══════════════════════════════════════════════════ */
-.empty { text-align: center; padding: 64px 20px; }
-.empty-icon { font-size: 44px; margin-bottom: 12px; }
-.empty-title { font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
-.empty-sub { font-size: 14px; color: var(--ink2); margin-bottom: 16px; }
-.empty-btn { padding: 9px 20px; border-radius: 20px; background: var(--brand); color: var(--inv); font-size: 13px; font-weight: 600; transition: all var(--t); }
-.empty-btn:hover { background: var(--brand-h); }
-/* ══════════════════════════════════════════════════
+    .empty {
+      text-align: center;
+      padding: 64px 20px;
+    }
+
+    .empty-icon {
+      font-size: 44px;
+      margin-bottom: 12px;
+    }
+
+    .empty-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .empty-sub {
+      font-size: 14px;
+      color: var(--ink2);
+      margin-bottom: 16px;
+    }
+
+    .empty-btn {
+      padding: 9px 20px;
+      border-radius: 20px;
+      background: var(--brand);
+      color: var(--inv);
+      font-size: 13px;
+      font-weight: 600;
+      transition: all var(--t);
+    }
+
+    .empty-btn:hover {
+      background: var(--brand-h);
+    }
+
+    /* ══════════════════════════════════════════════════
    LEGEND
 ══════════════════════════════════════════════════ */
-.legend-bar { max-width: 1280px; margin: 0 auto; padding: 0 24px 16px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.leg { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--ink3); }
-/* ══════════════════════════════════════════════════
+    .legend-bar {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .leg {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--ink3);
+    }
+
+    /* ══════════════════════════════════════════════════
    TOAST
 ══════════════════════════════════════════════════ */
-.toast-stack { position: fixed; bottom: 24px; right: 24px; z-index: 600; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
-.toast { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--r3); font-size: 13px; font-weight: 500; box-shadow: var(--s4); transform: translateX(120%); opacity: 0; transition: all .3s ease; max-width: 300px; pointer-events: none; }
-.toast.show { transform: translateX(0); opacity: 1; }
-.toast-ok  { background: var(--green); color: white; }
-.toast-err { background: var(--rose);  color: white; }
-.toast-def { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
-.toast svg { width: 14px; height: 14px; flex-shrink: 0; pointer-events: none; }
-/* ══════════════════════════════════════════════════
+    .toast-stack {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 600;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .toast {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--r3);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: var(--s4);
+      transform: translateX(120%);
+      opacity: 0;
+      transition: all .3s ease;
+      max-width: 300px;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .toast-ok {
+      background: var(--green);
+      color: white;
+    }
+
+    .toast-err {
+      background: var(--rose);
+      color: white;
+    }
+
+    .toast-def {
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .toast svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      pointer-events: none;
+    }
+
+    /* ══════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════ */
-.footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; }
-.footer-inner { max-width: 1280px; margin: 0 auto; font-size: 12px; color: var(--ink3); display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; }
-.footer-inner a { color: var(--ink3); text-decoration: underline; }
-/* ══════════════════════════════════════════════════
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      font-size: 12px;
+      color: var(--ink3);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-inner a {
+      color: var(--ink3);
+      text-decoration: underline;
+    }
+
+    /* ══════════════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════════════ */
-@media (max-width: 900px) {
-  .nav-search-input { width: 160px; }
-  .ctable thead th:nth-child(3), .ctable tbody td:nth-child(3) { display: none; }
-}
-@media (max-width: 640px) {
-  .nav-inner { padding: 0 16px; }
-  .nav-search-input { display: none; }
-  .hero { padding: 36px 16px 28px; }
-  .main { padding: 16px 16px 60px; }
-  .filters { padding: 10px 16px; }
-  .legend-bar { padding: 0 16px 12px; }
-  .ctable thead th:nth-child(2), .ctable tbody td:nth-child(2) { display: none; }
-  .sheet { width: 100%; right: auto; top: auto; bottom: 0; height: 92dvh; border-left: none; border-top: 1px solid var(--line); border-radius: var(--r4) var(--r4) 0 0; transform: translateY(100%); }
-  .sheet-overlay.open .sheet { transform: translateY(0); }
-}
-@media (max-width: 400px) {
-  .nav-admin-link { display: none; }
-}
-@media print {
-  .nav, .filters-wrap, .sys-bar, .toast-stack, .sheet-overlay, .bm-btn, .open-link { display: none !important; }
-  .provider-block .prov-body { display: block !important; }
-}
-/* ══════════════════════════════════════════════════
+    @media (max-width: 900px) {
+      .nav-search-input {
+        width: 160px;
+      }
+
+      .ctable thead th:nth-child(3),
+      .ctable tbody td:nth-child(3) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        padding: 0 16px;
+      }
+
+      .nav-search-input {
+        display: none;
+      }
+
+      .hero {
+        padding: 36px 16px 28px;
+      }
+
+      .main {
+        padding: 16px 16px 60px;
+      }
+
+      .filters {
+        padding: 10px 16px;
+      }
+
+      .legend-bar {
+        padding: 0 16px 12px;
+      }
+
+      .ctable thead th:nth-child(2),
+      .ctable tbody td:nth-child(2) {
+        display: none;
+      }
+
+      .sheet {
+        width: 100%;
+        right: auto;
+        top: auto;
+        bottom: 0;
+        height: 92dvh;
+        border-left: none;
+        border-top: 1px solid var(--line);
+        border-radius: var(--r4) var(--r4) 0 0;
+        transform: translateY(100%);
+      }
+
+      .sheet-overlay.open .sheet {
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .nav-admin-link {
+        display: none;
+      }
+    }
+
+    @media print {
+
+      .nav,
+      .filters-wrap,
+      .sys-bar,
+      .toast-stack,
+      .sheet-overlay,
+      .bm-btn,
+      .open-link {
+        display: none !important;
+      }
+
+      .provider-block .prov-body {
+        display: block !important;
+      }
+    }
+
+    /* ══════════════════════════════════════════════════
    LOADING SKELETON
 ══════════════════════════════════════════════════ */
-.skeleton { background: linear-gradient(90deg, var(--surface3) 25%, var(--surface2) 50%, var(--surface3) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: var(--r2); }
-@keyframes shimmer { to { background-position: -200% 0; } }
-.skel-block { height: 80px; margin-bottom: 10px; }
-</style>
+    .skeleton {
+      background: linear-gradient(90deg, var(--surface3) 25%, var(--surface2) 50%, var(--surface3) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: var(--r2);
+    }
+
+    @keyframes shimmer {
+      to {
+        background-position: -200% 0;
+      }
+    }
+
+    .skel-block {
+      height: 80px;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
+
 <body>
-<a class="skip" href="#main">Skip to courses</a>
+  <a class="skip" href="#main">Skip to courses</a>
 
-<!-- SYSTEM BARS -->
-<div class="sys-bar bar-offline" id="barOffline">
-  <span>📡 You're offline — showing cached data</span>
-</div>
-<div class="sys-bar bar-update" id="barUpdate">
-  <span>🆕 A new version is available</span>
-  <div style="display:flex;gap:8px">
-    <button class="bar-btn" onclick="applyUpdate()">Update now</button>
-    <button class="bar-btn" style="opacity:.7" onclick="document.getElementById('barUpdate').classList.remove('show')">Later</button>
+  <!-- SYSTEM BARS -->
+  <div class="sys-bar bar-offline" id="barOffline">
+    <span>📡 You're offline — showing cached data</span>
   </div>
-</div>
-<div class="sys-bar bar-install" id="barInstall">
-  <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
-    <div class="nav-logo" style="flex-shrink:0"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-    <div>
-      <div style="font-weight:700;font-size:14px">Install AI Courses App</div>
-      <div style="font-size:12px;color:var(--ink2)">Works offline · Instant launch · No browser clutter</div>
+  <div class="sys-bar bar-update" id="barUpdate">
+    <span>🆕 A new version is available</span>
+    <div style="display:flex;gap:8px">
+      <button class="bar-btn" onclick="applyUpdate()">Update now</button>
+      <button class="bar-btn" style="opacity:.7"
+        onclick="document.getElementById('barUpdate').classList.remove('show')">Later</button>
     </div>
   </div>
-  <div style="display:flex;gap:8px;flex-shrink:0">
-    <button class="bar-btn primary" onclick="doInstall()">Install</button>
-    <button class="bar-btn sec" onclick="dismissInstall()">Not now</button>
-  </div>
-</div>
-
-<!-- NAV -->
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a class="nav-brand" href="index.html" aria-label="AI Courses Home">
-      <div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-      <span class="nav-title">AI Courses</span>
-    </a>
-    <div class="nav-right">
-      <div class="nav-search">
-        <span class="nav-search-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-        <input class="nav-search-input" type="search" id="navSearch" placeholder="Search courses…" aria-label="Search courses" autocomplete="off">
-      </div>
-      <button class="nav-btn" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle theme (Ctrl+D)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-      </button>
-      <a class="nav-admin-link" href="admin.html">Admin ↗</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" aria-label="Page introduction">
-  <div class="hero-eyebrow">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-    Verified · Free · Updated March 2026
-  </div>
-  <h1 class="hero-h1">Free AI Courses<br>for <span>Educators & Students</span></h1>
-  <p class="hero-sub">Curated collection of free, certified AI courses from Google, IBM, Microsoft, Anthropic, AWS and more. No paywalls. No hidden fees.</p>
-  <div class="hero-stats">
-    <div class="hstat g"><span class="hstat-num" id="sTot">–</span><span class="hstat-lbl">courses</span></div>
-    <div class="hstat b"><span class="hstat-num" id="sFree">–</span><span class="hstat-lbl">free certificates</span></div>
-    <div class="hstat p"><span class="hstat-num" id="sProvs">–</span><span class="hstat-lbl">providers</span></div>
-    <div class="hstat" style="gap:4px"><span class="hstat-num" id="sDone" style="color:var(--amber)">0</span><span class="hstat-lbl">completed by you</span></div>
-  </div>
-</section>
-
-<!-- FILTERS -->
-<div class="filters-wrap" role="search" aria-label="Filters">
-  <div class="filters">
-    <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);white-space:nowrap">Filter</span>
-    <button class="chip on" data-f="all"        onclick="setF(this,'all')">All</button>
-    <button class="chip"    data-f="educator"   onclick="setF(this,'educator')">🎓 Educators</button>
-    <button class="chip"    data-f="student"    onclick="setF(this,'student')">📚 Students</button>
-    <div class="filter-sep"></div>
-    <button class="chip"    data-f="nocode"     onclick="setF(this,'nocode')">No-Code</button>
-    <button class="chip"    data-f="free-cert"  onclick="setF(this,'free-cert')">✓ Free Cert</button>
-    <button class="chip"    data-f="bookmarked" onclick="setF(this,'bookmarked')">⭐ Saved</button>
-    <button class="chip"    data-f="completed"  onclick="setF(this,'completed')">✅ Done</button>
-    <div class="filter-sep"></div>
-    <select class="sort-sel" id="sortSel" aria-label="Sort order">
-      <option value="default">Default order</option>
-      <option value="az">Name A–Z</option>
-      <option value="za">Name Z–A</option>
-      <option value="free">Free cert first</option>
-    </select>
-  </div>
-</div>
-
-<!-- LEGEND -->
-<div class="legend-bar" role="note" aria-label="Tag legend">
-  <span class="leg"><span class="tag cert-badge cert-free">✓ Free Cert</span> = no paywall</span>
-  <span class="leg"><span class="tag cert-badge cert-partial">Aid/Free</span> = cert via financial aid</span>
-  <span class="leg"><span class="tag t-educator">Educator</span></span>
-  <span class="leg"><span class="tag t-student">Student</span></span>
-  <span class="leg"><span class="tag t-nocode">No-Code</span></span>
-  <span class="leg"><span class="tag t-dev">Developer</span></span>
-</div>
-
-<!-- MAIN -->
-<main class="main" id="main" aria-label="Course list">
-  <div class="results-bar">
-    <div class="results-text" role="status" aria-live="polite">Showing <b id="rCount">–</b> courses from <b id="rProvs">–</b> providers</div>
-    <div style="display:flex;align-items:center;gap:8px">
-      <button class="chip" id="collapseBtn" onclick="toggleAll()" style="font-size:12px;padding:5px 10px">Collapse all</button>
-      <div class="view-toggle">
-        <button class="vt-btn on" id="vtTable" onclick="setView('table')" title="Table view" aria-label="Table view">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-        </button>
-        <button class="vt-btn" id="vtCard" onclick="setView('card')" title="Card view" aria-label="Card view">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        </button>
+  <div class="sys-bar bar-install" id="barInstall">
+    <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
+      <div class="nav-logo" style="flex-shrink:0"><svg viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+          <path d="M2 17l10 5 10-5" />
+          <path d="M2 12l10 5 10-5" />
+        </svg></div>
+      <div>
+        <div style="font-weight:700;font-size:14px">Install AI Courses App</div>
+        <div style="font-size:12px;color:var(--ink2)">Works offline · Instant launch · No browser clutter</div>
       </div>
     </div>
-  </div>
-  <!-- Loading skeletons -->
-  <div id="skeletons">
-    <div class="skeleton skel-block"></div>
-    <div class="skeleton skel-block"></div>
-    <div class="skeleton skel-block"></div>
-  </div>
-  <div id="courseList"></div>
-  <div class="empty hidden" id="emptyState">
-    <div class="empty-icon">🔍</div>
-    <div class="empty-title">No courses found</div>
-    <div class="empty-sub">Try different keywords or clear your filters</div>
-    <button class="empty-btn" onclick="resetAll()">Clear filters</button>
-  </div>
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <span>Free AI Courses Dataset v4.1</span>
-    <span>·</span>
-    <span>All courses verified March 2026</span>
-    <span>·</span>
-    <a href="admin.html">Admin</a>
-    <span>·</span>
-    <span id="offlineNote" style="display:none">📡 Offline mode</span>
-  </div>
-</footer>
-
-<!-- DETAIL SHEET -->
-<div class="sheet-overlay" id="sheetOverlay">
-  <aside class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
-    <div class="sheet-hdr">
-      <h2 class="sheet-title" id="sheetTitle">Course Details</h2>
-      <button class="sheet-close" onclick="closeSheet()" aria-label="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
+    <div style="display:flex;gap:8px;flex-shrink:0">
+      <button class="bar-btn primary" onclick="doInstall()">Install</button>
+      <button class="bar-btn sec" onclick="dismissInstall()">Not now</button>
     </div>
-    <div class="sheet-body" id="sheetBody"></div>
-  </aside>
-</div>
+  </div>
 
-<!-- TOAST STACK -->
-<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="AI Courses Home">
+        <div class="nav-logo"><svg viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg></div>
+        <span class="nav-title">AI Courses</span>
+      </a>
+      <div class="nav-right">
+        <div class="nav-search">
+          <span class="nav-search-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg></span>
+          <input class="nav-search-input" type="search" id="navSearch" placeholder="Search courses…"
+            aria-label="Search courses" autocomplete="off">
+        </div>
+        <button class="nav-btn" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle theme (Ctrl+D)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
+        <a class="nav-admin-link" href="admin.html">Admin ↗</a>
+      </div>
+    </div>
+  </nav>
 
-<script>
-'use strict';
-/* ═══════════════════════════════════════════════════
-   CONFIG — edit DATA_URL to point to your hosted JSON
-═══════════════════════════════════════════════════ */
-const DATA_URL = 'https://api.jsonbin.io/v3/b/69b7e450b7ec241ddc72424f/latest';  // change to absolute URL when hosted
+  <!-- HERO -->
+  <section class="hero" aria-label="Page introduction">
+    <div class="hero-eyebrow">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      Verified · Free · Updated March 2026
+    </div>
+    <h1 class="hero-h1">Free AI Courses<br>for <span>Educators & Students</span></h1>
+    <p class="hero-sub">Curated collection of free, certified AI courses from Google, IBM, Microsoft, Anthropic, AWS and
+      more. No paywalls. No hidden fees.</p>
+    <div class="hero-stats">
+      <div class="hstat g"><span class="hstat-num" id="sTot">–</span><span class="hstat-lbl">courses</span></div>
+      <div class="hstat b"><span class="hstat-num" id="sFree">–</span><span class="hstat-lbl">free certificates</span>
+      </div>
+      <div class="hstat p"><span class="hstat-num" id="sProvs">–</span><span class="hstat-lbl">providers</span></div>
+      <div class="hstat" style="gap:4px"><span class="hstat-num" id="sDone" style="color:var(--amber)">0</span><span
+          class="hstat-lbl">completed by you</span></div>
+    </div>
+  </section>
 
-/* ═══════════════════════════════════════════════════
-   STATE
-═══════════════════════════════════════════════════ */
-let DATA = null;
-let filter = 'all', view = 'table', search = '', currentCid = null;
-let bookmarks = new Set(JSON.parse(localStorage.getItem('ai_bm') || '[]'));
-let completed  = new Set(JSON.parse(localStorage.getItem('ai_dn') || '[]'));
-let ratings    = JSON.parse(localStorage.getItem('ai_rat') || '{}');
-let notes      = JSON.parse(localStorage.getItem('ai_notes') || '{}');
-let deferredPrompt = null, swReg = null;
+  <!-- FILTERS -->
+  <div class="filters-wrap" role="search" aria-label="Filters">
+    <div class="filters">
+      <span
+        style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);white-space:nowrap">Filter</span>
+      <button class="chip on" data-f="all" onclick="setF(this,'all')">All</button>
+      <button class="chip" data-f="educator" onclick="setF(this,'educator')">🎓 Educators</button>
+      <button class="chip" data-f="student" onclick="setF(this,'student')">📚 Students</button>
+      <div class="filter-sep"></div>
+      <button class="chip" data-f="nocode" onclick="setF(this,'nocode')">No-Code</button>
+      <button class="chip" data-f="free-cert" onclick="setF(this,'free-cert')">✓ Free Cert</button>
+      <button class="chip" data-f="bookmarked" onclick="setF(this,'bookmarked')">⭐ Saved</button>
+      <button class="chip" data-f="completed" onclick="setF(this,'completed')">✅ Done</button>
+      <div class="filter-sep"></div>
+      <select class="sort-sel" id="sortSel" aria-label="Sort order">
+        <option value="default">Default order</option>
+        <option value="az">Name A–Z</option>
+        <option value="za">Name Z–A</option>
+        <option value="free">Free cert first</option>
+      </select>
+    </div>
+  </div>
 
-const persist = (k,v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
-const saveBM  = () => persist('ai_bm', [...bookmarks]);
-const saveDN  = () => persist('ai_dn', [...completed]);
-const saveRat = () => persist('ai_rat', ratings);
-const saveNot = () => persist('ai_notes', notes);
+  <!-- LEGEND -->
+  <div class="legend-bar" role="note" aria-label="Tag legend">
+    <span class="leg"><span class="tag cert-badge cert-free">✓ Free Cert</span> = no paywall</span>
+    <span class="leg"><span class="tag cert-badge cert-partial">Aid/Free</span> = cert via financial aid</span>
+    <span class="leg"><span class="tag t-educator">Educator</span></span>
+    <span class="leg"><span class="tag t-student">Student</span></span>
+    <span class="leg"><span class="tag t-nocode">No-Code</span></span>
+    <span class="leg"><span class="tag t-dev">Developer</span></span>
+  </div>
 
-/* ═══════════════════════════════════════════════════
-   BOOT
-═══════════════════════════════════════════════════ */
-window.addEventListener('DOMContentLoaded', async () => {
-  injectManifest();
-  initSW();
-  initOnline();
-  initInstall();
-  await loadData();
-  renderAll();
-  document.getElementById('skeletons').remove();
-  document.getElementById('navSearch').addEventListener('input', e => { search = e.target.value.trim().toLowerCase(); runFilter(); });
-  document.getElementById('sortSel').addEventListener('change', runFilter);
-  document.addEventListener('keydown', handleKey);
-});
+  <!-- MAIN -->
+  <main class="main" id="main" aria-label="Course list">
+    <div class="results-bar">
+      <div class="results-text" role="status" aria-live="polite">Showing <b id="rCount">–</b> courses from <b
+          id="rProvs">–</b> providers</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button class="chip" id="collapseBtn" onclick="toggleAll()" style="font-size:12px;padding:5px 10px">Collapse
+          all</button>
+        <div class="view-toggle">
+          <button class="vt-btn on" id="vtTable" onclick="setView('table')" title="Table view" aria-label="Table view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="8" y1="6" x2="21" y2="6" />
+              <line x1="8" y1="12" x2="21" y2="12" />
+              <line x1="8" y1="18" x2="21" y2="18" />
+              <line x1="3" y1="6" x2="3.01" y2="6" />
+              <line x1="3" y1="12" x2="3.01" y2="12" />
+              <line x1="3" y1="18" x2="3.01" y2="18" />
+            </svg>
+          </button>
+          <button class="vt-btn" id="vtCard" onclick="setView('card')" title="Card view" aria-label="Card view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Loading skeletons -->
+    <div id="skeletons">
+      <div class="skeleton skel-block"></div>
+      <div class="skeleton skel-block"></div>
+      <div class="skeleton skel-block"></div>
+    </div>
+    <div id="courseList"></div>
+    <div class="empty hidden" id="emptyState">
+      <div class="empty-icon">🔍</div>
+      <div class="empty-title">No courses found</div>
+      <div class="empty-sub">Try different keywords or clear your filters</div>
+      <button class="empty-btn" onclick="resetAll()">Clear filters</button>
+    </div>
+  </main>
 
-/* ═══════════════════════════════════════════════════
-   DATA LOADING
-═══════════════════════════════════════════════════ */
-async function loadData() {
-  try {
-    const isJsonBin = DATA_URL.includes('jsonbin.io');
-    const headers = {};
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Free AI Courses Dataset v4.1</span>
+      <span>·</span>
+      <span>All courses verified March 2026</span>
+      <span>·</span>
+      <a href="admin.html">Admin</a>
+      <span>·</span>
+      <span id="offlineNote" style="display:none">📡 Offline mode</span>
+    </div>
+  </footer>
 
-    if (isJsonBin) {
-      headers['X-Bin-Meta'] = 'false';        // skip metadata wrapper
-      // If your bin is private, also add:
-      // headers['X-Master-Key'] = '$2a$10$YOUR_KEY';
-    }
+  <!-- DETAIL SHEET -->
+  <div class="sheet-overlay" id="sheetOverlay">
+    <aside class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="sheet-hdr">
+        <h2 class="sheet-title" id="sheetTitle">Course Details</h2>
+        <button class="sheet-close" onclick="closeSheet()" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="sheet-body" id="sheetBody"></div>
+    </aside>
+  </div>
 
-    const res = await fetch(DATA_URL, { headers });
+  <!-- TOAST STACK -->
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
 
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  <script>
+    'use strict';
+    /* ═══════════════════════════════════════════════════
+       CONFIG — edit DATA_URL to point to your hosted JSON
+    ═══════════════════════════════════════════════════ */
+    const DATA_URL = './courses.json';  // change to absolute URL when hosted
 
-    const json = await res.json();
-    DATA = json.record || json;   // handle both wrapped + unwrapped responses
+    /* ═══════════════════════════════════════════════════
+       STATE
+    ═══════════════════════════════════════════════════ */
+    let DATA = null;
+    let filter = 'all', view = 'table', search = '', currentCid = null;
+    let bookmarks = new Set(JSON.parse(localStorage.getItem('ai_bm') || '[]'));
+    let completed = new Set(JSON.parse(localStorage.getItem('ai_dn') || '[]'));
+    let ratings = JSON.parse(localStorage.getItem('ai_rat') || '{}');
+    let notes = JSON.parse(localStorage.getItem('ai_notes') || '{}');
+    let deferredPrompt = null, swReg = null;
 
-    if (!DATA?.providers) throw new Error('providers field missing');
+    const persist = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { } };
+    const saveBM = () => persist('ai_bm', [...bookmarks]);
+    const saveDN = () => persist('ai_dn', [...completed]);
+    const saveRat = () => persist('ai_rat', ratings);
+    const saveNot = () => persist('ai_notes', notes);
 
-    updateHeroStats();
-
-  } catch (e) {
-    console.error('loadData failed:', e);
-    // Try falling back to local courses.json
-    try {
-      const fallback = await fetch('./courses.json');
-      DATA = await fallback.json();
-      updateHeroStats();
-      toast('Using local data (JSONBin unreachable)', 'def');
-    } catch {
-      DATA = { providers: [], meta: {} };
-      toast('Could not load course data', 'err');
-    }
-  }
-}
-
-function updateHeroStats() {
-  if (!DATA?.providers) return;
-  let tot = 0, free = 0;
-  DATA.providers.forEach(p => { tot += p.courses.length; free += p.courses.filter(c => c.cert === 'free').length; });
-  document.getElementById('sTot').textContent   = tot;
-  document.getElementById('sFree').textContent  = free;
-  document.getElementById('sProvs').textContent = DATA.providers.length;
-  document.getElementById('sDone').textContent  = completed.size;
-}
-
-/* ═══════════════════════════════════════════════════
-   RENDER
-═══════════════════════════════════════════════════ */
-const TM = { nocode:['No-Code','t-nocode'], beginner:['Beginner','t-beginner'], intermediate:['Intermediate','t-int'], dev:['Developer','t-dev'] };
-const AM = { educator:['Educator','t-educator'], student:['Student','t-student'] };
-const mkT = ts => (ts||[]).map(t => TM[t] ? `<span class="tag ${TM[t][1]}">${TM[t][0]}</span>` : '').join('');
-const mkA = as => (as||[]).map(a => AM[a] ? `<span class="tag ${AM[a][1]}">${AM[a][0]}</span>` : '').join('');
-const mkC = c => { const f = c.cert==='free'; return `<span class="tag cert-badge ${f?'cert-free':'cert-partial'}">${f?'✓ ':''}${c.cl}</span>`; };
-
-function hl(text, q) {
-  if (!q) return text;
-  return text.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<mark style="background:var(--amber-s);color:var(--amber);border-radius:2px">$1</mark>');
-}
-
-function renderAll() {
-  if (!DATA?.providers) return;
-  const list = document.getElementById('courseList');
-  list.innerHTML = '';
-  const q = search;
-  const sort = document.getElementById('sortSel').value;
-  let shown = 0, provShown = 0;
-
-  DATA.providers.forEach(p => {
-    let courses = p.courses.filter(c => {
-      const nm = c.name.toLowerCase(), ds = c.desc.toLowerCase(), tg = (c.tags||[]).join(','), au = (c.aud||[]).join(',');
-      if (q && !nm.includes(q) && !ds.includes(q) && !tg.includes(q) && !p.name.toLowerCase().includes(q)) return false;
-      if (filter === 'educator'   && !au.includes('educator'))  return false;
-      if (filter === 'student'    && !au.includes('student'))   return false;
-      if (filter === 'nocode'     && !tg.includes('nocode'))    return false;
-      if (filter === 'free-cert'  && c.cert !== 'free')         return false;
-      if (filter === 'bookmarked' && !bookmarks.has(c.id))      return false;
-      if (filter === 'completed'  && !completed.has(c.id))      return false;
-      return true;
+    /* ═══════════════════════════════════════════════════
+       BOOT
+    ═══════════════════════════════════════════════════ */
+    window.addEventListener('DOMContentLoaded', async () => {
+      injectManifest();
+      initSW();
+      initOnline();
+      initInstall();
+      await loadData();
+      renderAll();
+      document.getElementById('skeletons').remove();
+      document.getElementById('navSearch').addEventListener('input', e => { search = e.target.value.trim().toLowerCase(); runFilter(); });
+      document.getElementById('sortSel').addEventListener('change', runFilter);
+      document.addEventListener('keydown', handleKey);
     });
 
-    if (!courses.length) return;
+    /* ═══════════════════════════════════════════════════
+       DATA LOADING
+    ═══════════════════════════════════════════════════ */
+    async function loadData() {
+      try {
+        const res = await fetch(DATA_URL + '?t=' + Date.now());
+        DATA = await res.json();
+      } catch (e) {
+        // try cache
+        try {
+          const res = await fetch(DATA_URL);
+          DATA = await res.json();
+          toast('Loaded from cache (offline)', 'def');
+        } catch {
+          DATA = { providers: [], meta: {} };
+          toast('Could not load data', 'err');
+        }
+      }
+      updateHeroStats();
+    }
 
-    if (sort === 'az')   courses.sort((a,b) => a.name.localeCompare(b.name));
-    if (sort === 'za')   courses.sort((a,b) => b.name.localeCompare(a.name));
-    if (sort === 'free') courses.sort((a,b) => (a.cert==='free'?0:1) - (b.cert==='free'?0:1));
+    function updateHeroStats() {
+      if (!DATA?.providers) return;
+      let tot = 0, free = 0;
+      DATA.providers.forEach(p => { tot += p.courses.length; free += p.courses.filter(c => c.cert === 'free').length; });
+      document.getElementById('sTot').textContent = tot;
+      document.getElementById('sFree').textContent = free;
+      document.getElementById('sProvs').textContent = DATA.providers.length;
+      document.getElementById('sDone').textContent = completed.size;
+    }
 
-    shown += courses.length;
-    provShown++;
+    /* ═══════════════════════════════════════════════════
+       RENDER
+    ═══════════════════════════════════════════════════ */
+    const TM = { nocode: ['No-Code', 't-nocode'], beginner: ['Beginner', 't-beginner'], intermediate: ['Intermediate', 't-int'], dev: ['Developer', 't-dev'] };
+    const AM = { educator: ['Educator', 't-educator'], student: ['Student', 't-student'] };
+    const mkT = ts => (ts || []).map(t => TM[t] ? `<span class="tag ${TM[t][1]}">${TM[t][0]}</span>` : '').join('');
+    const mkA = as => (as || []).map(a => AM[a] ? `<span class="tag ${AM[a][1]}">${AM[a][0]}</span>` : '').join('');
+    const mkC = c => { const f = c.cert === 'free'; return `<span class="tag cert-badge ${f ? 'cert-free' : 'cert-partial'}">${f ? '✓ ' : ''}${c.cl}</span>`; };
 
-    const block = document.createElement('div');
-    block.className = 'provider-block open';
-    block.dataset.pid = p.id;
-    block.innerHTML = `
+    function hl(text, q) {
+      if (!q) return text;
+      return text.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'), '<mark style="background:var(--amber-s);color:var(--amber);border-radius:2px">$1</mark>');
+    }
+
+    function renderAll() {
+      if (!DATA?.providers) return;
+      const list = document.getElementById('courseList');
+      list.innerHTML = '';
+      const q = search;
+      const sort = document.getElementById('sortSel').value;
+      let shown = 0, provShown = 0;
+
+      DATA.providers.forEach(p => {
+        let courses = p.courses.filter(c => {
+          const nm = c.name.toLowerCase(), ds = c.desc.toLowerCase(), tg = (c.tags || []).join(','), au = (c.aud || []).join(',');
+          if (q && !nm.includes(q) && !ds.includes(q) && !tg.includes(q) && !p.name.toLowerCase().includes(q)) return false;
+          if (filter === 'educator' && !au.includes('educator')) return false;
+          if (filter === 'student' && !au.includes('student')) return false;
+          if (filter === 'nocode' && !tg.includes('nocode')) return false;
+          if (filter === 'free-cert' && c.cert !== 'free') return false;
+          if (filter === 'bookmarked' && !bookmarks.has(c.id)) return false;
+          if (filter === 'completed' && !completed.has(c.id)) return false;
+          return true;
+        });
+
+        if (!courses.length) return;
+
+        if (sort === 'az') courses.sort((a, b) => a.name.localeCompare(b.name));
+        if (sort === 'za') courses.sort((a, b) => b.name.localeCompare(a.name));
+        if (sort === 'free') courses.sort((a, b) => (a.cert === 'free' ? 0 : 1) - (b.cert === 'free' ? 0 : 1));
+
+        shown += courses.length;
+        provShown++;
+
+        const block = document.createElement('div');
+        block.className = 'provider-block open';
+        block.dataset.pid = p.id;
+        block.innerHTML = `
       <div class="prov-hdr" onclick="toggleBlock(this.parentElement)" role="button" tabindex="0" aria-expanded="true" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
         <span class="prov-pill" style="background:${p.color};color:${p.tc}">${p.name}</span>
         <div class="prov-info">
@@ -679,27 +1815,27 @@ function renderAll() {
           <div class="prov-sub">${p.sub}</div>
         </div>
         <div class="prov-right">
-          <span class="prov-count">${courses.length} course${courses.length!==1?'s':''}</span>
+          <span class="prov-count">${courses.length} course${courses.length !== 1 ? 's' : ''}</span>
           <span class="prov-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
         </div>
       </div>
       <div class="prov-body" id="body-${p.id}"></div>`;
 
-    const body = block.querySelector('.prov-body');
-    if (view === 'table') {
-      const tbl = document.createElement('table');
-      tbl.className = 'ctable';
-      tbl.innerHTML = `<thead><tr>
+        const body = block.querySelector('.prov-body');
+        if (view === 'table') {
+          const tbl = document.createElement('table');
+          tbl.className = 'ctable';
+          tbl.innerHTML = `<thead><tr>
         <th style="width:44%">Course</th>
         <th style="width:13%">Certificate</th>
         <th style="width:16%">Audience</th>
         <th style="width:10%">Actions</th>
       </tr></thead>`;
-      const tb = document.createElement('tbody');
-      courses.forEach(c => {
-        const tr = document.createElement('tr');
-        const bm = bookmarks.has(c.id), dn = completed.has(c.id);
-        tr.innerHTML = `
+          const tb = document.createElement('tbody');
+          courses.forEach(c => {
+            const tr = document.createElement('tr');
+            const bm = bookmarks.has(c.id), dn = completed.has(c.id);
+            tr.innerHTML = `
           <td>
             <div class="c-title">${hl(c.name, q)}</div>
             <div class="c-desc">${hl(c.desc, q)}</div>
@@ -710,28 +1846,28 @@ function renderAll() {
           <td>
             <div style="display:flex;gap:4px;align-items:center">
               <a href="${c.link}" target="_blank" rel="noopener" class="open-link" onclick="event.stopPropagation()">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-              <button class="bm-btn${bm?' on':''}" onclick="event.stopPropagation();toggleBM('${c.id}',this)" aria-label="Bookmark" title="Bookmark">
-                <svg viewBox="0 0 24 24" fill="${bm?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+              <button class="bm-btn${bm ? ' on' : ''}" onclick="event.stopPropagation();toggleBM('${c.id}',this)" aria-label="Bookmark" title="Bookmark">
+                <svg viewBox="0 0 24 24" fill="${bm ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
               </button>
             </div>
           </td>`;
-        tr.addEventListener('click', e => { if (!e.target.closest('a,button')) openSheet(c.id, p.id); });
-        tb.appendChild(tr);
-      });
-      tbl.appendChild(tb);
-      body.appendChild(tbl);
-    } else {
-      const grid = document.createElement('div');
-      grid.className = 'card-grid';
-      courses.forEach(c => {
-        const bm = bookmarks.has(c.id), dn = completed.has(c.id);
-        const card = document.createElement('div');
-        card.className = 'course-card';
-        card.innerHTML = `
+            tr.addEventListener('click', e => { if (!e.target.closest('a,button')) openSheet(c.id, p.id); });
+            tb.appendChild(tr);
+          });
+          tbl.appendChild(tb);
+          body.appendChild(tbl);
+        } else {
+          const grid = document.createElement('div');
+          grid.className = 'card-grid';
+          courses.forEach(c => {
+            const bm = bookmarks.has(c.id), dn = completed.has(c.id);
+            const card = document.createElement('div');
+            card.className = 'course-card';
+            card.innerHTML = `
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
             <div class="card-title">${hl(c.name, q)}</div>
-            <button class="bm-btn${bm?' on':''}" onclick="event.stopPropagation();toggleBM('${c.id}',this)" aria-label="Bookmark">
-              <svg viewBox="0 0 24 24" fill="${bm?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+            <button class="bm-btn${bm ? ' on' : ''}" onclick="event.stopPropagation();toggleBM('${c.id}',this)" aria-label="Bookmark">
+              <svg viewBox="0 0 24 24" fill="${bm ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
             </button>
           </div>
           <div class="card-desc">${hl(c.desc, q)}</div>
@@ -740,107 +1876,107 @@ function renderAll() {
             ${mkC(c)}
             <a href="${c.link}" target="_blank" rel="noopener" class="open-link" onclick="event.stopPropagation()">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           </div>`;
-        card.addEventListener('click', e => { if (!e.target.closest('a,button')) openSheet(c.id, p.id); });
-        grid.appendChild(card);
+            card.addEventListener('click', e => { if (!e.target.closest('a,button')) openSheet(c.id, p.id); });
+            grid.appendChild(card);
+          });
+          body.appendChild(grid);
+        }
+        list.appendChild(block);
       });
-      body.appendChild(grid);
+
+      document.getElementById('rCount').textContent = shown;
+      document.getElementById('rProvs').textContent = provShown;
+      document.getElementById('emptyState').classList.toggle('hidden', shown > 0);
+      updateHeroStats();
     }
-    list.appendChild(block);
-  });
 
-  document.getElementById('rCount').textContent = shown;
-  document.getElementById('rProvs').textContent = provShown;
-  document.getElementById('emptyState').classList.toggle('hidden', shown > 0);
-  updateHeroStats();
-}
+    /* ═══════════════════════════════════════════════════
+       FILTERS
+    ═══════════════════════════════════════════════════ */
+    function setF(btn, f) {
+      filter = f;
+      document.querySelectorAll('.chip').forEach(b => b.classList.toggle('on', b.dataset.f === f));
+      renderAll();
+    }
+    function resetAll() {
+      filter = 'all'; search = '';
+      document.getElementById('navSearch').value = '';
+      document.getElementById('sortSel').value = 'default';
+      document.querySelectorAll('.chip').forEach(b => b.classList.toggle('on', b.dataset.f === 'all'));
+      renderAll();
+    }
 
-/* ═══════════════════════════════════════════════════
-   FILTERS
-═══════════════════════════════════════════════════ */
-function setF(btn, f) {
-  filter = f;
-  document.querySelectorAll('.chip').forEach(b => b.classList.toggle('on', b.dataset.f === f));
-  renderAll();
-}
-function resetAll() {
-  filter = 'all'; search = '';
-  document.getElementById('navSearch').value = '';
-  document.getElementById('sortSel').value = 'default';
-  document.querySelectorAll('.chip').forEach(b => b.classList.toggle('on', b.dataset.f === 'all'));
-  renderAll();
-}
+    /* ═══════════════════════════════════════════════════
+       VIEW
+    ═══════════════════════════════════════════════════ */
+    function setView(v) {
+      view = v;
+      document.getElementById('vtTable').classList.toggle('on', v === 'table');
+      document.getElementById('vtCard').classList.toggle('on', v === 'card');
+      renderAll();
+    }
 
-/* ═══════════════════════════════════════════════════
-   VIEW
-═══════════════════════════════════════════════════ */
-function setView(v) {
-  view = v;
-  document.getElementById('vtTable').classList.toggle('on', v === 'table');
-  document.getElementById('vtCard').classList.toggle('on', v === 'card');
-  renderAll();
-}
+    /* ═══════════════════════════════════════════════════
+       COLLAPSE
+    ═══════════════════════════════════════════════════ */
+    let allOpen = true;
+    function toggleBlock(block) {
+      block.classList.toggle('open');
+      const hdr = block.querySelector('.prov-hdr');
+      if (hdr) hdr.setAttribute('aria-expanded', block.classList.contains('open').toString());
+      updateCollapseBtn();
+    }
+    function toggleAll() {
+      const blocks = document.querySelectorAll('.provider-block');
+      allOpen = !allOpen;
+      blocks.forEach(b => { b.classList.toggle('open', allOpen); b.querySelector('.prov-hdr')?.setAttribute('aria-expanded', allOpen.toString()); });
+      updateCollapseBtn();
+    }
+    function updateCollapseBtn() {
+      const blocks = document.querySelectorAll('.provider-block');
+      const anyOpen = [...blocks].some(b => b.classList.contains('open'));
+      document.getElementById('collapseBtn').textContent = anyOpen ? 'Collapse all' : 'Expand all';
+    }
 
-/* ═══════════════════════════════════════════════════
-   COLLAPSE
-═══════════════════════════════════════════════════ */
-let allOpen = true;
-function toggleBlock(block) {
-  block.classList.toggle('open');
-  const hdr = block.querySelector('.prov-hdr');
-  if (hdr) hdr.setAttribute('aria-expanded', block.classList.contains('open').toString());
-  updateCollapseBtn();
-}
-function toggleAll() {
-  const blocks = document.querySelectorAll('.provider-block');
-  allOpen = !allOpen;
-  blocks.forEach(b => { b.classList.toggle('open', allOpen); b.querySelector('.prov-hdr')?.setAttribute('aria-expanded', allOpen.toString()); });
-  updateCollapseBtn();
-}
-function updateCollapseBtn() {
-  const blocks = document.querySelectorAll('.provider-block');
-  const anyOpen = [...blocks].some(b => b.classList.contains('open'));
-  document.getElementById('collapseBtn').textContent = anyOpen ? 'Collapse all' : 'Expand all';
-}
+    /* ═══════════════════════════════════════════════════
+       BOOKMARK / DONE
+    ═══════════════════════════════════════════════════ */
+    function toggleBM(cid, btn) {
+      const add = !bookmarks.has(cid);
+      add ? bookmarks.add(cid) : bookmarks.delete(cid);
+      btn.classList.toggle('on', add);
+      btn.querySelector('svg')?.setAttribute('fill', add ? 'currentColor' : 'none');
+      saveBM(); updateHeroStats();
+      toast(add ? 'Bookmarked ⭐' : 'Bookmark removed', add ? 'ok' : 'def');
+    }
+    function toggleDone(cid) {
+      const add = !completed.has(cid);
+      add ? completed.add(cid) : completed.delete(cid);
+      saveDN(); updateHeroStats(); renderAll();
+      if (currentCid === cid) openSheet(cid, null);
+      toast(add ? 'Marked complete ✅' : 'Marked incomplete', add ? 'ok' : 'def');
+    }
 
-/* ═══════════════════════════════════════════════════
-   BOOKMARK / DONE
-═══════════════════════════════════════════════════ */
-function toggleBM(cid, btn) {
-  const add = !bookmarks.has(cid);
-  add ? bookmarks.add(cid) : bookmarks.delete(cid);
-  btn.classList.toggle('on', add);
-  btn.querySelector('svg')?.setAttribute('fill', add ? 'currentColor' : 'none');
-  saveBM(); updateHeroStats();
-  toast(add ? 'Bookmarked ⭐' : 'Bookmark removed', add ? 'ok' : 'def');
-}
-function toggleDone(cid) {
-  const add = !completed.has(cid);
-  add ? completed.add(cid) : completed.delete(cid);
-  saveDN(); updateHeroStats(); renderAll();
-  if (currentCid === cid) openSheet(cid, null);
-  toast(add ? 'Marked complete ✅' : 'Marked incomplete', add ? 'ok' : 'def');
-}
-
-/* ═══════════════════════════════════════════════════
-   DETAIL SHEET
-═══════════════════════════════════════════════════ */
-function getC(cid) {
-  for (const p of (DATA?.providers || [])) {
-    const c = p.courses.find(x => x.id === cid);
-    if (c) return { c, p };
-  }
-  return null;
-}
-function openSheet(cid) {
-  const found = getC(cid);
-  if (!found) return;
-  const { c, p } = found;
-  currentCid = cid;
-  const rat = ratings[cid] || 0;
-  const note = notes[cid] || '';
-  const bm = bookmarks.has(cid), dn = completed.has(cid);
-  document.getElementById('sheetTitle').textContent = c.name;
-  document.getElementById('sheetBody').innerHTML = `
+    /* ═══════════════════════════════════════════════════
+       DETAIL SHEET
+    ═══════════════════════════════════════════════════ */
+    function getC(cid) {
+      for (const p of (DATA?.providers || [])) {
+        const c = p.courses.find(x => x.id === cid);
+        if (c) return { c, p };
+      }
+      return null;
+    }
+    function openSheet(cid) {
+      const found = getC(cid);
+      if (!found) return;
+      const { c, p } = found;
+      currentCid = cid;
+      const rat = ratings[cid] || 0;
+      const note = notes[cid] || '';
+      const bm = bookmarks.has(cid), dn = completed.has(cid);
+      document.getElementById('sheetTitle').textContent = c.name;
+      document.getElementById('sheetBody').innerHTML = `
     <div class="sheet-section">
       <div class="sheet-label">Provider</div>
       <span class="tag" style="background:${p.color};color:${p.tc};padding:4px 10px;border-radius:var(--r1);font-weight:600;font-size:12px">${p.name}</span>
@@ -856,8 +1992,8 @@ function openSheet(cid) {
     <div class="sheet-section">
       <div class="sheet-label">Your Rating</div>
       <div style="display:flex;align-items:center;gap:10px">
-        <div class="stars" data-cid="${cid}">${[1,2,3,4,5].map(i=>`<button class="star${i<=rat?' on':''}" onclick="rate('${cid}',${i})" title="${i} star${i>1?'s':''}">${i<=rat?'★':'☆'}</button>`).join('')}</div>
-        <span style="font-size:12px;color:var(--ink3)">${rat ? rat+'/5' : 'Not rated'}</span>
+        <div class="stars" data-cid="${cid}">${[1, 2, 3, 4, 5].map(i => `<button class="star${i <= rat ? ' on' : ''}" onclick="rate('${cid}',${i})" title="${i} star${i > 1 ? 's' : ''}">${i <= rat ? '★' : '☆'}</button>`).join('')}</div>
+        <span style="font-size:12px;color:var(--ink3)">${rat ? rat + '/5' : 'Not rated'}</span>
       </div>
     </div>
     <div class="sheet-section">
@@ -882,118 +2018,119 @@ function openSheet(cid) {
       </div>
     </div>
     <a href="${c.link}" target="_blank" rel="noopener" class="sheet-cta">Open Course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>`;
-  document.getElementById('sheetOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeSheet() {
-  document.getElementById('sheetOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-  currentCid = null;
-}
-document.getElementById('sheetOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeSheet(); });
+      document.getElementById('sheetOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSheet() {
+      document.getElementById('sheetOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+      currentCid = null;
+    }
+    document.getElementById('sheetOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeSheet(); });
 
-function rate(cid, val) { ratings[cid] = val; saveRat(); document.getElementById('sheetTitle') && openSheet(cid); toast('Rating saved ★', 'ok'); }
-function saveNote(cid) { const el = document.getElementById('sheetNote'); if (el) { notes[cid] = el.value; saveNot(); toast('Note saved', 'ok'); } }
-function cpUrl(url) { navigator.clipboard.writeText(url).then(() => toast('Copied! ✓', 'ok')).catch(() => toast('Copy failed', 'err')); }
+    function rate(cid, val) { ratings[cid] = val; saveRat(); document.getElementById('sheetTitle') && openSheet(cid); toast('Rating saved ★', 'ok'); }
+    function saveNote(cid) { const el = document.getElementById('sheetNote'); if (el) { notes[cid] = el.value; saveNot(); toast('Note saved', 'ok'); } }
+    function cpUrl(url) { navigator.clipboard.writeText(url).then(() => toast('Copied! ✓', 'ok')).catch(() => toast('Copy failed', 'err')); }
 
-/* ═══════════════════════════════════════════════════
-   THEME
-═══════════════════════════════════════════════════ */
-function toggleTheme() {
-  const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', t);
-  localStorage.setItem('theme', t);
-  document.getElementById('themeColor').content = t === 'dark' ? '#1A1915' : '#FFFFFF';
-}
+    /* ═══════════════════════════════════════════════════
+       THEME
+    ═══════════════════════════════════════════════════ */
+    function toggleTheme() {
+      const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      document.getElementById('themeColor').content = t === 'dark' ? '#1A1915' : '#FFFFFF';
+    }
 
-/* ═══════════════════════════════════════════════════
-   PWA — Service Worker
-═══════════════════════════════════════════════════ */
-async function initSW() {
-  if (!('serviceWorker' in navigator)) return;
-  try {
-    swReg = await navigator.serviceWorker.register('./sw.js', { scope: './' });
-    swReg.addEventListener('updatefound', () => {
-      const nw = swReg.installing;
-      nw.addEventListener('statechange', () => {
-        if (nw.state === 'installed' && navigator.serviceWorker.controller) {
-          document.getElementById('barUpdate').classList.add('show');
+    /* ═══════════════════════════════════════════════════
+       PWA — Service Worker
+    ═══════════════════════════════════════════════════ */
+    async function initSW() {
+      if (!('serviceWorker' in navigator)) return;
+      try {
+        swReg = await navigator.serviceWorker.register('./sw.js', { scope: './' });
+        swReg.addEventListener('updatefound', () => {
+          const nw = swReg.installing;
+          nw.addEventListener('statechange', () => {
+            if (nw.state === 'installed' && navigator.serviceWorker.controller) {
+              document.getElementById('barUpdate').classList.add('show');
+            }
+          });
+        });
+      } catch (e) { console.warn('SW reg failed:', e); }
+    }
+    function applyUpdate() { swReg?.waiting?.postMessage({ type: 'SKIP_WAITING' }); location.reload(); }
+
+    /* ═══════════════════════════════════════════════════
+       PWA — Online/Offline
+    ═══════════════════════════════════════════════════ */
+    function initOnline() {
+      const update = () => {
+        const off = !navigator.onLine;
+        document.getElementById('barOffline').classList.toggle('show', off);
+        document.getElementById('offlineNote').style.display = off ? '' : 'none';
+      };
+      window.addEventListener('online', update);
+      window.addEventListener('offline', update);
+      update();
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PWA — Install Prompt
+    ═══════════════════════════════════════════════════ */
+    function initInstall() {
+      window.addEventListener('beforeinstallprompt', e => {
+        e.preventDefault(); deferredPrompt = e;
+        if (!localStorage.getItem('pwa_dismissed')) {
+          setTimeout(() => document.getElementById('barInstall').classList.add('show'), 4000);
         }
       });
-    });
-  } catch (e) { console.warn('SW reg failed:', e); }
-}
-function applyUpdate() { swReg?.waiting?.postMessage({ type: 'SKIP_WAITING' }); location.reload(); }
-
-/* ═══════════════════════════════════════════════════
-   PWA — Online/Offline
-═══════════════════════════════════════════════════ */
-function initOnline() {
-  const update = () => {
-    const off = !navigator.onLine;
-    document.getElementById('barOffline').classList.toggle('show', off);
-    document.getElementById('offlineNote').style.display = off ? '' : 'none';
-  };
-  window.addEventListener('online', update);
-  window.addEventListener('offline', update);
-  update();
-}
-
-/* ═══════════════════════════════════════════════════
-   PWA — Install Prompt
-═══════════════════════════════════════════════════ */
-function initInstall() {
-  window.addEventListener('beforeinstallprompt', e => {
-    e.preventDefault(); deferredPrompt = e;
-    if (!localStorage.getItem('pwa_dismissed')) {
-      setTimeout(() => document.getElementById('barInstall').classList.add('show'), 4000);
+      window.addEventListener('appinstalled', () => {
+        document.getElementById('barInstall').classList.remove('show');
+        toast('App installed! 🎉 Launch from home screen', 'ok');
+      });
     }
-  });
-  window.addEventListener('appinstalled', () => {
-    document.getElementById('barInstall').classList.remove('show');
-    toast('App installed! 🎉 Launch from home screen', 'ok');
-  });
-}
-function doInstall() { if (!deferredPrompt) return; deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => { document.getElementById('barInstall').classList.remove('show'); deferredPrompt = null; }); }
-function dismissInstall() { document.getElementById('barInstall').classList.remove('show'); localStorage.setItem('pwa_dismissed', '1'); }
+    function doInstall() { if (!deferredPrompt) return; deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => { document.getElementById('barInstall').classList.remove('show'); deferredPrompt = null; }); }
+    function dismissInstall() { document.getElementById('barInstall').classList.remove('show'); localStorage.setItem('pwa_dismissed', '1'); }
 
-/* ═══════════════════════════════════════════════════
-   PWA — Manifest (inline blob)
-═══════════════════════════════════════════════════ */
-function injectManifest() {
-  const m = { name: 'Free AI Courses', short_name: 'AI Courses', description: 'Free AI courses for educators and students', start_url: './index.html', display: 'standalone', background_color: '#F4F2EE', theme_color: '#1A1916', categories: ['education'], icons: [{ src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%231A1916'/%3E%3Cpolygon points='96,28 36,60 96,92 156,60' fill='white'/%3E%3Cpolyline points='36,128 96,160 156,128' fill='none' stroke='white' stroke-width='10' stroke-linecap='round'/%3E%3Cpolyline points='36,96 96,128 156,96' fill='none' stroke='white' stroke-width='10' stroke-linecap='round'/%3E%3C/svg%3E", sizes: '192x192', type: 'image/svg+xml', purpose: 'any maskable' }] };
-  const b = new Blob([JSON.stringify(m)], { type: 'application/manifest+json' });
-  const l = document.createElement('link'); l.rel = 'manifest'; l.href = URL.createObjectURL(b);
-  document.getElementById('manifestLink').replaceWith(l);
-}
+    /* ═══════════════════════════════════════════════════
+       PWA — Manifest (inline blob)
+    ═══════════════════════════════════════════════════ */
+    function injectManifest() {
+      const m = { name: 'Free AI Courses', short_name: 'AI Courses', description: 'Free AI courses for educators and students', start_url: './index.html', display: 'standalone', background_color: '#F4F2EE', theme_color: '#1A1916', categories: ['education'], icons: [{ src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%231A1916'/%3E%3Cpolygon points='96,28 36,60 96,92 156,60' fill='white'/%3E%3Cpolyline points='36,128 96,160 156,128' fill='none' stroke='white' stroke-width='10' stroke-linecap='round'/%3E%3Cpolyline points='36,96 96,128 156,96' fill='none' stroke='white' stroke-width='10' stroke-linecap='round'/%3E%3C/svg%3E", sizes: '192x192', type: 'image/svg+xml', purpose: 'any maskable' }] };
+      const b = new Blob([JSON.stringify(m)], { type: 'application/manifest+json' });
+      const l = document.createElement('link'); l.rel = 'manifest'; l.href = URL.createObjectURL(b);
+      document.getElementById('manifestLink').replaceWith(l);
+    }
 
-/* ═══════════════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════════════ */
-function toast(msg, type='def') {
-  const wrap = document.getElementById('toastStack');
-  const el = document.createElement('div');
-  const ico = { ok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>', err: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>', def: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>' };
-  el.className = `toast toast-${type}`;
-  el.innerHTML = (ico[type]||ico.def) + msg;
-  wrap.appendChild(el);
-  requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('show')));
-  setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 350); }, 3000);
-}
+    /* ═══════════════════════════════════════════════════
+       TOAST
+    ═══════════════════════════════════════════════════ */
+    function toast(msg, type = 'def') {
+      const wrap = document.getElementById('toastStack');
+      const el = document.createElement('div');
+      const ico = { ok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>', err: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>', def: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>' };
+      el.className = `toast toast-${type}`;
+      el.innerHTML = (ico[type] || ico.def) + msg;
+      wrap.appendChild(el);
+      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('show')));
+      setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 350); }, 3000);
+    }
 
-/* ═══════════════════════════════════════════════════
-   KEYBOARD
-═══════════════════════════════════════════════════ */
-function handleKey(e) {
-  const tag = document.activeElement.tagName, inInput = tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT';
-  if (e.key === 'Escape') {
-    if (document.getElementById('sheetOverlay').classList.contains('open')) { closeSheet(); return; }
-    if (search) { resetAll(); return; }
-  }
-  if (inInput && !(e.ctrlKey||e.metaKey)) return;
-  if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('navSearch').focus(); }
-  if ((e.ctrlKey||e.metaKey) && e.key === 'd') { e.preventDefault(); toggleTheme(); }
-}
-</script>
+    /* ═══════════════════════════════════════════════════
+       KEYBOARD
+    ═══════════════════════════════════════════════════ */
+    function handleKey(e) {
+      const tag = document.activeElement.tagName, inInput = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+      if (e.key === 'Escape') {
+        if (document.getElementById('sheetOverlay').classList.contains('open')) { closeSheet(); return; }
+        if (search) { resetAll(); return; }
+      }
+      if (inInput && !(e.ctrlKey || e.metaKey)) return;
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('navSearch').focus(); }
+      if ((e.ctrlKey || e.metaKey) && e.key === 'd') { e.preventDefault(); toggleTheme(); }
+    }
+  </script>
 </body>
+
 </html>
